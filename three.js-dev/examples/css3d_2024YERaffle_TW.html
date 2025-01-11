@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>鼎捷2024年聚英會壓軸大獎抽獎</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="main.css">
+		<style>
+			body, html {
+				margin: 0;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-image: url('files/TC_raffle_bg.PNG'); /* Path to your image */
+				background-size: cover;   /* Cover the entire page */
+				background-repeat: no-repeat; /* Prevent the image from repeating */
+				background-attachment: fixed; /* Make the background image fixed */
+				background-position: center; /* Center the image on the page */
+
+			}
+			a {
+				color: #8ff;
+			}
+			
+			.containerMain {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			#raffleTitle {
+				position: absolute;
+				display: flex;
+    			flex-wrap: wrap;
+				top: 3%;
+				width: 1000px;
+				background-image: url('files/TC_raffle_title.PNG'); /* Path to your image */
+				background-size:contain;   /* Cover the entire page */
+				background-repeat: no-repeat; /* Prevent the image from repeating */
+				background-position: center; /* Center the image on the page */
+
+			}
+
+			#winnerContainer {
+				position: absolute;
+				display: flex;
+    			flex-wrap: wrap;
+				width: 1100px;
+				height: 800px;
+				background-image: url('files/new_year_spring_festival01.png');
+				background-size:contain;   /* Cover the entire page */
+				background-repeat: no-repeat; /* Prevent the image from repeating */
+				background-position: center; /* Center the image on the page */
+				font-family: Helvetica, sans-serif;
+				text-align: center;
+				line-height: normal;
+				justify-content: center;
+				align-items: center;
+				/* cursor: default; */
+				z-index: 10;
+				
+				opacity: 0;
+			}
+			
+
+			.winnerElement {
+				width: 200px;
+				height: 180px;
+				margin: 5px;
+				display: block;
+				justify-content: center;
+				align-items: center;
+				background-image: url('files/redenv01.png'); /* Path to your image */
+				background-size:contain;   /* Cover the entire page */
+				background-repeat: no-repeat; /* Prevent the image from repeating */
+				background-position: center; /* Center the image on the page */
+				/* border: 1px solid rgba(243, 214, 146, 0.93); */
+				/* box-shadow: 0px 0px 50px rgb(255, 254, 251); */
+				color: rgba(24, 47, 253, 0.637);
+				font-family: Helvetica, sans-serif;
+				font-size: 30px;
+				text-align: center;
+				line-height: normal;
+				opacity: 1;
+				/* cursor: default; */
+				/* background-color: rgb(255, 161, 54); */
+			}
+
+			.winnerElement .name {
+					position: relative;
+					top: 105px;
+					width: 100%;
+					font-size: 30px;
+					font-weight: bold;
+					color: rgba(34, 13, 13, 0.75);
+					text-size-adjust: auto;
+					/* background-color: aqua; */
+				}
+
+				.winnerElement .uid {
+					position: relative;
+					top: 110px;
+					right: 0px;
+					width: 100%;
+					font-size: 20px;
+					font-weight: bold;
+					color: rgba(34, 13, 13, 0.75);
+					text-shadow: 0 0 10px rgba(81, 0, 255, 0.5);
+					text-size-adjust: auto;
+					/* background-color: rgb(57, 54, 255); */
+				}
+
+				.winnerElement .dept {
+					position: relative;
+					top: 115px;
+					width: 100%;
+					font-size: 25px;
+					font-weight: bold;
+					color: rgba(34, 13, 13, 0.75);
+					text-size-adjust: auto;
+					/* background-color: rgb(54, 181, 255); */
+				}
+
+			.menu {
+				position: absolute;
+				bottom: calc(5%);
+				width: 100%;
+				text-align: center;
+			}
+
+			.element {
+				width: 180px;
+				height: 120px;
+				box-shadow: 0px 0px 12px rgba(81, 0, 255, 0.5);
+				border: 1px solid rgba(127,255,255,0.25);
+				font-family: Helvetica, sans-serif;
+				text-align: center;
+				line-height: normal;
+				cursor: default;
+			}
+
+			.element:hover {
+				box-shadow: 0px 0px 30px rgb(255, 254, 251);
+				border: 1px solid rgb(255, 254, 195);
+			}
+			.hover-effect {
+				box-shadow: 0px 0px 30px rgb(255, 254, 251);
+				border: 1px solid rgb(255, 254, 195);
+			}
+
+				.element .number {
+					position: absolute;
+					top: 20px;
+					right: 20px;
+					font-size: 12px;
+					color: rgba(129, 127, 255, 0.75);
+					text-size-adjust: auto;
+				}
+
+				.element .symbol {
+					position: absolute;
+					top: 10px;
+					left: 0px;
+					right: 0px;
+					font-size: 30px;
+					font-weight: bold;
+					color: rgba(255, 255, 255, 0.75);
+					text-shadow: 0 0 10px rgba(81, 0, 255, 0.5);
+					text-size-adjust: auto;
+				}
+
+				.element .details {
+					position: absolute;
+					bottom: 15px;
+					left: 0px;
+					right: 0px;
+					font-size: 15px;
+					color: rgba(245, 216, 255, 0.75);
+					text-size-adjust: auto;
+				}
+
+				.element .squareName {
+					top: 8px;
+					font-size: 12px;
+				}
+
+				.element .squareUID {
+					bottom: 7px;
+					font-size: 10px;
+				}
+
+			button {
+				color: rgba(127,255,255,0.75);
+				background: transparent;
+				outline: 1px solid rgba(127,255,255,0.75);
+				border: 0px;
+				padding: 5px 10px;
+				cursor: pointer;
+				font-size: 35px;
+				font-weight: bold;
+				z-index: 20;
+			}
+
+			button:hover {
+				background-color: rgba(0,255,255,0.5);
+			}
+
+			button:active {
+				color: #000000;
+				background-color: rgba(0,255,255,0.75);
+			}
+
+			.divEnlarged {
+				width: 300px;
+				height: 180px;
+				opacity: 1;
+			}
+			
+
+			.eleDiv-left {
+				position: absolute;
+				left: calc(10%); /* Center minus 100px */
+				width: 200px; /* Adjust as needed */
+				height: 100px; /* Adjust as needed */
+				border: 1px solid #000; /* For visibility */
+			}
+
+			.eleDiv-right {
+				position: absolute;
+				right: calc(10%); /* Center minus 100px */
+				width: 200px; /* Adjust as needed */
+				height: 100px; /* Adjust as needed */
+				border: 1px solid #000; /* For visibility */
+			}
+
+			.hidden {
+				display: none;
+			}
+			.display {
+				display: block;
+			}
+
+			.fadeAway {
+				animation: fadeAway 5s forwards;
+			}
+
+			.fadeOut {
+				animation: fadeOut 2s forwards;
+			}
+
+			.raffleEnlargeAndRotateAnimate {
+				animation: enlargeAndRotate 3s forwards; 
+			}
+
+			.raffleMoveLeftAnimate {
+				animation: moveLeft 8s 2s forwards; 
+			}
+
+			.raffleMoveRightAnimate {
+				animation: moveRight 8s 2s forwards; 
+			}
+
+			.raffleFadeOutAnimate {
+				animation: fadeOut 2s 10s forwards; 
+			}
+			.skew-x-shakengAnimate {
+				animation: skew-x-shakeng 5s 5s forwards; 
+			}
+			.skew-y-shakengAnimate {
+				animation: skew-y-shakeng 5s 5s forwards; 
+			}
+
+			.winnerContainerFadeOut{
+				animation: winnerContainerFadeOut 2s 1s forwards;
+			}
+			.winnerContainerFadeAway{
+				animation: winnerContainerFadeAway 5s 1s forwards;
+			}
+
+			@keyframes winnerContainerFadeOut{
+				to {
+					box-shadow: 3px 3px 5px rgb(255, 254, 251);
+					border: 1px solid rgb(248, 245, 54);
+					background-color: rgb(255, 254, 249, 1); 
+					opacity: 1;
+				}
+			}
+			@keyframes winnerContainerFadeAway{
+				to {
+					box-shadow: 0px 0px 0px rgb(255, 254, 251);
+					border: 0px solid rgb(248, 245, 54);
+					background-color: rgb(255, 254, 249, 0); 
+					opacity: 0;
+				}
+			}
+
+			@keyframes enlargeAndRotate {
+				to {
+					width: 300px;
+					height: 180px;
+					opacity: 1;
+					transform: rotate(360deg);
+				}
+			}
+
+			@keyframes rotateNumber {
+				from {
+					transform: rotate(0deg);
+				}
+				to {
+					transform: rotate(360deg);
+				}
+			}
+
+			@keyframes moveLeft {
+				0% {
+					left: 43%; /* Move to the left , 43% from the edge */
+				}
+				100% {
+					left: 10%; /* Move to the left , 20% away from the edge */
+				}
+			}
+
+			@keyframes moveRight {
+				0% {
+					left: 43%; /* Move to the right, 43% from the edge */
+				}
+				100% {
+					left: 76%; /* Move to the right, 70% away from the edge */
+				}
+			}
+
+			@keyframes fadeAway {
+				0% {
+					opacity: 0; 
+				}
+				100% {
+					opacity: 1; 
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 0; 
+				}
+				100% {
+					opacity: 1; 
+				}
+			}
+
+			@keyframes skew-x-shakeng{
+				0% { transform: skewX(-15deg); }
+				5% { transform: skewX(15deg); }
+				10% { transform: skewX(-15deg); }
+				15% { transform: skewX(15deg); }
+				20% { transform: skewX(0deg); }
+				100% { transform: skewX(0deg); }
+			}
+
+			@keyframes skew-y-shakeing{
+				0% { transform: skewY(-15deg); }
+				5% { transform: skewY(15deg); }
+				10% { transform: skewY(-15deg); }
+				15% { transform: skewY(15deg); }
+				20% { transform: skewY(0deg); }
+				100% { transform: skewY(0deg); }
+			}
+						
+		</style>
+	</head>
+	<body>
+		<div class="containerMain">
+			<div id="raffleTitle"><h1>&nbsp;</h1></div>
+				<!-- 非大陸區WinnerPrizeDiv -->
+				<div id="winnerPrizeDivOC" style="display:none" class="prizeElement">
+					<div id="winnerNameOC" class="name">中獎者</div>
+					<div id="winnerUIDOC" class="uid">工號</div>
+				</div>
+				
+			<div id="container">
+			</div>
+			<div id="winnerContainer" class=""></div>
+			<div id="menuOC" class="menu" style="display: flex; justify-content: center; ">
+				<button id="enterraffleBtnOC" >進入抽獎活動</button>
+				<button id="raffle1BtnOC" style="display:none" >開始第一次抽獎</button>
+				<button id="raffle2BtnOC" style="display:none" >開始第二次抽獎</button>
+				<button id="raffle3BtnOC" style="display:none" >開始第三次抽獎</button>
+				<button id="raffle4BtnOC" style="display:none" >開始第四次抽獎</button>
+				<button id="raffle5BtnOC" style="display:none" >開始第五次抽獎</button>
+			</div>
+		</div>
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "../build/three.module.js",
+					"three/addons/": "./jsm/"
+				}
+			}
+		</script>
+
+		<script type="module">
+
+			import * as THREE from 'three';
+
+			import TWEEN from 'three/addons/libs/tween.module.js';
+			import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
+			import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
+
+			const tempDataList = [
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1,
+				'員工姓名', '工號', '1.00794', 1, 1
+			];
+
+			let camera, scene, renderer;
+			let controls;
+			
+			let prizeObject, selectedWinner;
+			const objects = [];
+			const targets = { table: [], sphere: [], helix: [], grid: [] };
+			const sphereGroup = new THREE.Group(); // Create a group for the sphere
+
+			// 
+			const geometry = new THREE.BoxGeometry(50, 50, 50); // Adjust the size as needed
+			const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, transparent: true, opacity: 0 }); // Transparent material
+			let square = new THREE.Mesh(geometry, material);
+			let angle = 0;
+			let radius = 300;
+			let globalRotate = 0.02; // Adjust the speed of rotation
+
+			let isOC = true;
+			let raffled = false;
+
+			let raffleDataList = [{"Name":"江峻宇","UID":"20913","Dept":"HRM價值交付部","CityGo":"桃園","CityBack":"桃園","TableNum":""},{"Name":"傅思語","UID":"21425","Dept":"BPM價值交付部","CityGo":"自行前往","CityBack":"自行返回","TableNum":""},{"Name":"陳羿成","UID":"21434","Dept":"離散車間產品二部","CityGo":"自行前往(仍需打卡)","CityBack":"自行返回","TableNum":""},{"Name":"黃閔晟","UID":"21415","Dept":"行業經營二部","CityGo":"自行前往(仍需打卡)","CityBack":"自行返回","TableNum":""},{"Name":"鄒華芹","UID":"21417","Dept":"北區共享服務部","CityGo":"台北","CityBack":"台北","TableNum":""},{"Name":"游皓宇","UID":"21481","Dept":"整合規劃業務三部","CityGo":"桃園","CityBack":"桃園","TableNum":""},{"Name":"張子珊","UID":"21473","Dept":"BPM價值交付部","CityGo":"自行前往","CityBack":"自行返回","TableNum":""},{"Name":"劉駿耀","UID":"21819","Dept":"業務一部","CityGo":"新竹","CityBack":"自行返回","TableNum":""},{"Name":"錢泓唯","UID":"21816","Dept":"資安分析組","CityGo":"自行前往(仍需打卡)","CityBack":"自行返回","TableNum":""},{"Name":"張家源","UID":"21818","Dept":"客戶服務部","CityGo":"自行前往(仍需打卡)","CityBack":"自行返回","TableNum":""},{"Name":"許健性","UID":"21874","Dept":"客戶服務部","CityGo":"自行前往(仍需打卡)","CityBack":"自行返回","TableNum":""},{"Name":"蘇俊融","UID":"21876","Dept":"維運五部","CityGo":"台南","CityBack":"台南","TableNum":""},{"Name":"葉密榆","UID":"09057","Dept":"WorkFlow暨ERPII方案中心","CityGo":"自行前往","CityBack":"自行返回","TableNum":""},{"Name":"楊千金","UID":"09252","Dept":"行業交付二部","CityGo":"台北","CityBack":"台北","TableNum":""},{"Name":"鄭茹燕","UID":"02032","Dept":"數位價值部","CityGo":"台北","CityBack":"台北","TableNum":""},{"Name":"謝嘉珊","UID":"07556","Dept":"數字運營方案事業部","CityGo":"自行前往(仍需打卡)","CityBack":"自行返回","TableNum":""},{"Name":"吳鎮宇","UID":"09261","Dept":"HRM價值服務部","CityGo":"台北","CityBack":"台北","TableNum":""},{"Name":"王齡翊","UID":"05473","Dept":"數位營銷部"}];
+			const apiUrl = 'http://localhost:54128/api/DscYEInfo/GetTWRafflePeopleList?key=0o9i8u';
+			
+			//dataInt();
+
+			init();
+
+			animate();
+			
+			function dataInt() {
+				fetchData(apiUrl);
+			}
+
+			function init() {
+
+				camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 10000 );
+				camera.position.z = 3000;
+
+				scene = new THREE.Scene();
+				console.log('Applying Background Image..');
+				
+				// table
+
+				for ( let i = 0; i < tempDataList.length; i += 5 ) {
+
+					const element = document.createElement( 'div' );
+					element.className = 'element';
+					//element.style.backgroundColor = 'rgba(81, 100, 255,' + ( Math.random() * 0.5 + 0.25 ) + ')';
+
+					const number = document.createElement( 'div' );
+					number.className = 'number';
+					number.textContent = ( i / 5 ) + 1;
+					//element.appendChild( number );
+
+					const symbol = document.createElement( 'div' );
+					symbol.className = 'symbol';
+					symbol.textContent = tempDataList[ i ];
+					element.appendChild( symbol );
+
+					const details = document.createElement( 'div' );
+					details.className = 'details';
+					details.innerHTML = tempDataList[ i + 1 ] // + '<br>' + tempDataList[ i + 2 ];
+					element.appendChild( details );
+
+					const objectCSS = new CSS3DObject( element );
+					objectCSS.position.x = Math.random() * 4000 - 2000;
+					objectCSS.position.y = Math.random() * 4000 - 2000;
+					objectCSS.position.z = Math.random() * 4000 - 2000;
+					scene.add( objectCSS );
+
+					objects.push( objectCSS );
+
+					sphereGroup.add(objectCSS);
+					// Add each object to the group
+					scene.add(sphereGroup); // Add the group to the scene
+
+					//
+
+					const object = new THREE.Object3D();
+					object.position.x = ( tempDataList[ i + 3 ] * 140 ) - 1330;
+					object.position.y = - ( tempDataList[ i + 4 ] * 180 ) + 990;
+
+					targets.table.push( object );
+
+				}
+
+				function randomShowEffect(){
+					sphereGroup.children.forEach(obj1 => {
+					let num = 5; // 這裡可以調整Effect的呈現的機率，num為機率之分母，如1/3, 1/5, 1/10等
+					const randomNumber = Math.floor(Math.random() * num) + 1;
+						if (randomNumber == num){
+							obj1.element.classList.add('hover-effect');
+						}
+						else
+							obj1.element.classList.remove('hover-effect');
+					});
+				}
+				const randShowEffIntervalId = setInterval(randomShowEffect, 5000); // Effect跳動的頻率
+
+				// sphere
+
+				const vector = new THREE.Vector3();
+				
+
+				for ( let i = 0, l = objects.length; i < l; i ++ ) {
+
+					const phi = Math.acos( - 1 + ( 2 * i ) / l );
+					const theta = Math.sqrt( l * Math.PI ) * phi;
+
+					const object = new THREE.Object3D();
+
+					object.position.setFromSphericalCoords( 800, phi, theta );
+
+					vector.copy( object.position ).multiplyScalar( 2 );
+
+					object.lookAt( vector );
+
+					targets.sphere.push( object );
+
+					
+				}
+				 
+				// helix
+
+				for ( let i = 0, l = objects.length; i < l; i ++ ) {
+
+					const theta = i * 0.175 + Math.PI;
+					const y = - ( i * 8 ) + 900;
+
+					const object = new THREE.Object3D();
+
+					object.position.setFromCylindricalCoords( 900, theta, y );
+
+					vector.x = object.position.x * 2;
+					vector.y = object.position.y;
+					vector.z = object.position.z * 2;
+
+					object.lookAt( vector );
+
+					targets.helix.push( object );
+
+				}
+
+				// grid
+
+				for ( let i = 0; i < objects.length; i ++ ) {
+
+					const object = new THREE.Object3D();
+
+					object.position.x = ( ( i % 5 ) * 400 ) - 800;
+					object.position.y = ( - ( Math.floor( i / 5 ) % 5 ) * 400 ) + 800;
+					object.position.z = ( Math.floor( i / 25 ) ) * 1000 - 3000;
+
+					targets.grid.push( object );
+
+				}
+
+				// 起始動畫 - Grid
+				// 自轉
+				startSelfSpin(sphereGroup, 500000,100);
+
+
+				// 變球狀
+				setTimeout(() => {
+					enterraffleBtnOC.click();
+					//console.log("This message is shown after a delay of 5 seconds.");
+				}, 5510);
+
+				//============================Create Prize Element=============================
+				// Create Prize Element
+				const prizeElement = document.createElement('div');
+				prizeElement.className = 'prizeElement';
+				
+				const empName = document.createElement( 'div' );
+				empName.className = 'name';
+				empName.textContent = '員工姓名';
+				prizeElement.appendChild( empName );
+
+				const empUID = document.createElement( 'div' );
+				empUID.className = 'uid';
+				empUID.textContent = '工號';
+				prizeElement.appendChild( empUID );
+				//prizeElement.visible = false;
+				// Create CSS3DObject
+				const prizeCssObject = new CSS3DObject(prizeElement);
+				prizeObject = prizeCssObject;
+				prizeCssObject.visible = false;
+				// Add it to the scene
+				scene.add(prizeCssObject);
+
+				
+				//=============================================================================
+
+				renderer = new CSS3DRenderer();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				document.getElementById( 'container' ).appendChild( renderer.domElement );
+
+				//
+
+				controls = new TrackballControls( camera, renderer.domElement );
+				controls.minDistance = 500;
+				controls.maxDistance = 26000;
+				controls.noRotate = true;
+				controls.addEventListener( 'change', render );
+
+				const enterraffleBtnOC = document.getElementById( 'enterraffleBtnOC' );
+				enterraffleBtnOC.addEventListener( 'click', function () {
+					this.style.display = "none";
+
+					cameraZoom(500, 50);
+
+
+					transform( targets.sphere, 2000, true );
+
+
+				} );
+
+				// ================================================================================== //
+				// =========================== 開始抽獎按鈕事件(台灣區抽獎) =========================== //
+				// ================================================================================== //
+				const raffle1BtnOC = document.getElementById( 'raffle1BtnOC' );
+				raffle1BtnOC.addEventListener( 'click', function () {
+
+					//transform( targets.grid, 2000 ); // Original function
+
+					//prizeObject.visible = true;
+					console.log('start raffling...');
+					
+					let count = 0;
+					const winnerContainer = document.getElementById('winnerContainer');
+					winnerContainer.classList.remove('winnerContainerFadeAway');
+					
+					
+					
+					globalRotate = 0.03;
+					setTimeout(function() {
+						globalRotate = 0.10;
+						animateSquareRotate();
+					}, 2000); // 2000 milliseconds = 2 seconds
+					setTimeout(function() {
+						globalRotate = 0;
+						animateSquareRotate();
+					}, 5000); // 2000 milliseconds = 2 seconds
+					animateSquareRotate();
+					
+					setTimeout(function() {
+						
+						function addWinnerDiv() {
+							winnerContainer.classList.add('winnerContainerFadeOut');
+							square.visible = false;
+							angle = 0;
+							radius = 300;
+							globalRotate = 0.005; // Adjust the speed of rotation
+
+							if (count >= 10) {
+								clearInterval(intervalId); // Stop adding divs after reaching 10
+
+								if (square) {
+									scene.remove(square); // Remove the existing square if it exists
+								}
+
+								
+								//winnerContainer.classList.toggle('fadeOut-background');
+								setTimeout(function() {
+									winnerContainer.classList.remove('winnerContainerFadeOut');
+									winnerContainer.classList.add('winnerContainerFadeAway');
+									setTimeout(function() {
+										//winnerContainer.classList.toggle('fadeAway-background');
+									}, 3000); // 2000 milliseconds = 2 seconds
+									while (winnerContainer.firstChild) {
+										winnerContainer.removeChild(winnerContainer.firstChild);
+										console.log('removing..' + winnerContainer.firstChild);
+									}
+									
+									// 創建3D Square
+									createSquareAndRotate();
+								}, 15000); // 2000 milliseconds = 2 seconds
+								
+								return;
+							}
+							console.log('winnerElement added..');
+
+							let randomObj = randomRaffleAndRemove(raffleDataList);
+
+							const newWinnerDiv = document.createElement('div');
+							newWinnerDiv.classList.add('winnerElement');
+							newWinnerDiv.classList.add('skew-y-shakengAnimate');
+
+							const winnerName = document.createElement( 'div' );
+							winnerName.className = 'name';
+							winnerName.textContent = randomObj.Name;
+							newWinnerDiv.appendChild( winnerName );
+
+							const winnerUID = document.createElement( 'div' );
+							winnerUID.className = 'uid';
+							winnerUID.textContent = randomObj.UID;
+							newWinnerDiv.appendChild( winnerUID );
+
+							const winnerDept = document.createElement( 'div' );
+							winnerDept.className = 'dept';
+							winnerDept.textContent = randomObj.Dept;
+							newWinnerDiv.appendChild( winnerDept );
+
+							winnerContainer.appendChild(newWinnerDiv);
+							count++;
+						}
+						let intervalId = setInterval(addWinnerDiv, 1000); // Add a div every 0.3 second
+					}, 5000); //
+				});
+				
+				window.addEventListener( 'resize', onWindowResize );
+
+				//
+				// Add event listeners
+				document.addEventListener('mousemove', onMouseMove, false);
+				document.addEventListener('wheel', onDocumentMouseWheel, false);
+
+				// 創建3D Square
+				createSquareAndRotate();
+				
+
+			}
+
+			function transform( targets, duration, rotateByYAxis ) {
+
+				TWEEN.removeAll();
+
+				for ( let i = 0; i < objects.length; i ++ ) {
+
+					const object = objects[ i ];
+					const target = targets[ i ];
+
+					new TWEEN.Tween( object.position )
+						.to( { x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration )
+						.easing( TWEEN.Easing.Exponential.InOut )
+						.start();
+
+					new TWEEN.Tween( object.rotation )
+						.to( { x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration )
+						.easing( TWEEN.Easing.Exponential.InOut )
+						.start();
+				}
+
+				new TWEEN.Tween( this )
+					.to( {}, duration * 2 )
+					.onUpdate( render )
+					.start()
+					.onComplete(() => {
+						// When first tween is complete, start self-spin function
+						console.log('finished tween!');
+						setTimeout(startSelfSpin(sphereGroup,1900000,100), 100); // 200 milliseconds = 0.2 seconds
+
+						// 顯示Raffle Btn
+						if (isOC){
+							const raffle1BtnOC = document.getElementById("raffle1BtnOC");
+							raffle1BtnOC.style.display = "block";
+						}
+						
+
+						// 將所有CSS3DObject旋轉180%(by Y-Axis)
+						if (rotateByYAxis){
+							rotateByGlobalYAxis(sphereGroup);
+						}
+				});
+
+				
+			}
+
+			// 3D ANIMATION - 創建Square，在正中心環繞旋轉
+			function createSquareAndRotate(){
+				if (square) {
+					scene.remove(square); // Remove the existing square if it exists
+				}
+				square.position.z = 0; // 0 units away from the Z-axis
+
+				scene.add(square);
+
+				const createTextSide = (text, x, y, z, ry) => {
+					const div = document.createElement('div');
+					div.classList.add('element');
+					div.classList.add('hover-effect');
+					div.style.width = '50px'; // Match the size of the BoxGeometry
+					div.style.height = '50px';
+					//div.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+					
+					const symbol = document.createElement( 'div' );
+					symbol.className = 'symbol squareName';
+					div.appendChild( symbol );
+
+					const details = document.createElement( 'div' );
+					details.className = 'details squareUID';
+					div.appendChild( details );
+					
+					const textObject = new CSS3DObject(div);
+					textObject.position.set(x, y, z);
+					textObject.rotation.y = ry;
+
+					return textObject;
+				};
+
+				// Front
+				square.add(createTextSide('Front', 0, 0, 50, 0));
+				// Back
+				square.add(createTextSide('Back', 0, 0, -50, Math.PI));
+				// Left
+				square.add(createTextSide('Left', -50, 0, 0, -Math.PI / 2));
+				// Right
+				square.add(createTextSide('Right', 50, 0, 0, Math.PI / 2));
+
+				
+				animateSquareRotate();
+
+				let textUpdateCounter = 0;
+				function updateTextSides() {
+					square.children.forEach(side => {
+						let randomObj = randomRaffleWithoutRemove(raffleDataList);
+						//side.element.textContent = randomObj.Name;
+						//console.log('side div: '+side[0]);
+						const symbolDiv = side.element.children[0]; // 'symbol' div
+						const detailsDiv = side.element.children[1]; // 'details' div
+						symbolDiv.textContent = randomObj.Name + randomObj.Name;
+						detailsDiv.textContent = randomObj.UID + randomObj.UID;
+					});
+					textUpdateCounter++;
+				}
+				setInterval(updateTextSides, 500); // Update text every 0.1 second
+
+			}
+
+			function animateSquareRotate() {
+					requestAnimationFrame(animateSquareRotate);
+
+					// Calculate the square's position in orbit
+					square.position.x = radius * Math.cos(angle);
+					square.position.z = radius * Math.sin(angle);
+					square.rotation.y -= 0.01;
+					// Increment the angle for the next frame
+					angle += globalRotate;
+
+					renderer.render(scene, camera);
+			}
+
+			// 3D ANIMATION - 將所有名牌旋轉180%(by Y-Axis)
+			function rotateByGlobalYAxis(css3DObjGroup){
+				css3DObjGroup.children.forEach(object => {
+					// Calculate the target quaternion for a 180-degree rotation around the Y axis
+					const targetQuaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI);
+					targetQuaternion.multiply(object.quaternion);
+
+					// Create a new tween for the rotation
+					new TWEEN.Tween(object.quaternion)
+						.to(targetQuaternion, 500) // Duration of 1 second
+						.onUpdate(() => {
+							object.quaternion.slerp(targetQuaternion, 0.1);
+						})
+						.start();
+				});
+			}
+
+			function onWindowResize() {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				render();
+			}
+
+			function animate() {
+				requestAnimationFrame( animate );
+
+				TWEEN.update();
+
+				controls.update();
+			}
+
+			function render() {
+				renderer.render( scene, camera );
+
+			}
+
+			// 3D ANIMATION - 名牌自行轉動
+			function startSelfSpin(spinObject, seconds, numberOfSpins) {
+				TWEEN.removeAll();
+
+				// Tween setup for rotation
+				//console.log(sphereGroup);
+				const targetRotation = { y: Math.PI * numberOfSpins}; // Full rotation
+				const tween = new TWEEN.Tween(spinObject.rotation)
+					.to(targetRotation, seconds) // Rotate for xxx milliseconds
+					.onUpdate( render )
+					.repeat(Infinity) // Optional: Repeat the animation
+					.start();
+					
+
+				console.log('Finished startSelfSpin..');
+			}
+
+			// 3D ANIMATION - Camera Zoom 控制
+			function cameraZoom(targetZPosition, animationDuration){
+				// Animation variables
+				let startTime = null;
+
+				// Animation ZOOM function
+				function animateZoom(timestamp) {
+					if (startTime === null) startTime = timestamp;
+					const elapsed = timestamp - startTime;
+
+					// Calculate the fraction of completion
+					const fraction = elapsed / (animationDuration * 1000);
+
+					if (fraction < 1) {
+						// Interpolate between the current position and the target position
+						camera.position.z += (targetZPosition - camera.position.z) * fraction;
+						requestAnimationFrame(animateZoom);
+					} else {
+						// Ensure final position is set accurately
+						camera.position.z = targetZPosition;
+					}
+
+					renderer.render(scene, camera);
+				}
+
+				// Start the animation
+				requestAnimationFrame(animateZoom);
+			}
+
+
+			// Function to handle mouse move event
+			function onMouseMove(event) {
+				console.log(`Camera Position on Drag: x=${camera.position.x}, y=${camera.position.y}, z=${camera.position.z}`);
+			}
+
+			// Function to handle mouse wheel event
+			function onDocumentMouseWheel(event) {
+
+				console.log(`Camera Position on Scroll: x=${camera.position.x}, y=${camera.position.y}, z=${camera.position.z}`);
+			}
+
+			// 取得台灣區抽獎人員清單
+			function fetchData(apiUrl) {
+				$.ajax({
+					type:"POST",
+					crossDomain: true,
+					cache: false,
+					contentType: "application/json; charset=utf-8",
+					url: apiUrl,
+					dataType:"json",
+					data: JSON.stringify({'key': '0o9i8u'}),
+					success :function(data){
+						console.log(data);
+						//raffleDataList = data;
+						console.log('printing... ');
+						console.log(raffleDataList[0].Name);
+						//raffleDataList.forEach(function(obj) { console.log(obj.Name); });
+					},
+					error: function(response)
+					{
+						alert('Failed to call TC data list web api : '+ response.status);
+					}
+				})
+			}
+
+
+		</script>
+		<script src="jsm/jquery-3.7.1.min.js"></script>
+		<script src="main.js"></script>
+	</body>
+</html>
