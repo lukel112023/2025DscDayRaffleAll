@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>鼎捷2024年聚英會壓軸大獎抽獎</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<link type="text/css" rel="stylesheet" href="main.css">
+	<link type="text/css" rel="stylesheet" href="animate.min.css">
+	<script src="wow.js"></script>
+	<script src="raffleAllTC.js"></script>
+	<script src="raffleAllCN.js"></script>
+	<script>
+		//字體樣式
+		(function (d) {
+			var config = {
+				kitId: 'hve4tim',
+				scriptTimeout: 3000,
+				async: true
+			},
+				h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
+		})(document);
+	</script>
+	<style>
+		body {
+			font-weight: 400;
+			/* font-family: "Microsoft YaHei"; */
+		}
+
+		a {
+			color: #8ff;
+		}
+
+		#menu {
+			position: absolute;
+			bottom: 20px;
+			width: 100%;
+			text-align: center;
+		}
+
+		.element1 {
+			background-color: #ffae0d;
+		}
+
+		.element2 {
+			background-color: #52c187;
+		}
+
+		.element3 {
+			background-color: #e86bb0;
+		}
+
+		.element4 {
+			background-color: #3b3bea;
+		}
+
+		.element5 {
+			background-color: #e56161;
+		}
+
+		.element {
+			width: 160px;
+			height: 110px;
+			font-family: Helvetica, sans-serif;
+			text-align: center;
+			line-height: normal;
+			cursor: default;
+		}
+
+		.element:hover {
+			box-shadow: 0px 0px 12px rgba(129, 187, 255, 0.75);
+			border: 1px solid rgba(129, 187, 255, 0.75);
+		}
+
+		.element .number {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			font-size: 12px;
+			color: rgba(129, 127, 255, 0.75);
+		}
+
+		.element .symbol {
+			position: absolute;
+			top: 10px;
+			left: 0px;
+			right: 0px;
+			font-size: 36px;
+			font-weight: bold;
+			color: rgba(255, 255, 255, 0.75);
+			text-shadow: 0 0 10px rgba(81, 0, 255, 0.5);
+		}
+
+		.element .details {
+			position: absolute;
+			bottom: 15px;
+			left: 0px;
+			right: 0px;
+			font-size: 34px;
+			color: rgba(245, 216, 255, 0.75);
+		}
+
+		.Squarediv {
+			width: 100%;
+			max-width: 350px;
+			height: 350px;
+			font-family: "tensentype-ruihei", "Microsoft YaHei", sans-serif;
+			text-align: center;
+			line-height: normal;
+			cursor: default;
+			font-size: 82px;
+			color: #fff;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			background: #ffae0d;
+		}
+
+		button {
+			color: rgba(127, 255, 255, 0.75);
+			background: transparent;
+			outline: 1px solid rgba(127, 255, 255, 0.75);
+			border: 0px;
+			padding: 5px 10px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: rgba(0, 255, 255, 0.5);
+		}
+
+		button:active {
+			color: #000000;
+			background-color: rgba(0, 255, 255, 0.75);
+		}
+
+		.prizeElement {
+			width: 100%;
+			max-width: 400px;
+			/* height: 260px; */
+			background: linear-gradient(90deg, #e99931 5%, #924f01 85%);
+			box-shadow: 0px 0px 10px #01132d;
+			/* border: 1px solid rgba(243, 214, 146, 0.93); */
+			font-family: "tensentype-ruihei", "Microsoft YaHei", sans-serif;
+			text-align: center;
+			line-height: normal;
+			cursor: default;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-evenly;
+			visibility: hidden;
+		}
+
+		.prizeElement .department {
+			/* font-weight: bold; */
+			color: #fefefe;
+			/* text-shadow: 0 0 5px rgba(81, 0, 255, 0.5); */
+			font-family: "tensentype-ruihei", "Microsoft YaHei", sans-serif;
+			font-weight: 100;
+			font-style: normal;
+			font-size: 37px;
+			margin: 0;
+			padding: 35px 15px;
+			/* padding: 10px 0; */
+			line-height: 1.3;
+		}
+
+		.prizeElement .name {
+			/* font-weight: bold; */
+			color: #fefefe;
+			/* text-shadow: 0 0 5px rgba(81, 0, 255, 0.5); */
+			font-family: "tensentype-ruihei", "Microsoft YaHei", sans-serif;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 82px;
+			padding: 0 0 35px;
+			line-height: 1;
+		}
+
+		.prizeElement .uid {
+			font-family: "tensentype-ruihei", "Microsoft YaHei", sans-serif;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 58px;
+			color: #fefefe;
+			padding: 0 0 55px;
+			/* text-shadow: 0 0 5px rgba(255, 81, 0, 0.5); */
+			line-height: 1;
+		}
+
+		.prizeElement:hover {
+			background-color: rgba(250, 210, 51, 0.766);
+			box-shadow: 0px 0px 5px rgba(255, 234, 101, 0.863);
+			border: 1px solid rgba(245, 221, 166, 0.93);
+		}
+
+		.prizeElementLeft {
+			position: absolute;
+			transform: translate(-150%, -50%);
+			transition: all 1s ease-in-out;
+		}
+
+		.prizeElementRight {
+			transform: translate(50%, -50%);
+			transition: all 1s ease-in-out;
+		}
+
+		.prizetitle {
+			font-family: "tensentype-ruihei", "Microsoft YaHei", sans-serif;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 38px;
+			color: #fff;
+			background: #6a3307;
+			/* height: 65px; */
+			padding: 15px 0;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#info h2 {
+			font-family: "tensentype-ruihei", "Microsoft YaHei", sans-serif;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 60px;
+			letter-spacing: 3px;
+			line-height: 1;
+			/* height: 43px; */
+			margin: 30px 0 0;
+			/* padding: 20px 0 0; */
+			display: inline-block;
+			background: linear-gradient(90deg, #e9a442 0%, #f6d5a7 56%, #e9a442 100%);
+			-webkit-background-clip: text;
+			color: transparent;
+		}
+
+		.bg {
+			background: url("images/bg.png") no-repeat center;
+		}
+
+		#sphere,
+		#raffleTC,
+		#lotteryTC,
+		#raffleCN,
+		#lotteryCN,
+		#stopTC,
+		#openTC,
+		#stopCN,
+		#openCN,
+		#AwardWinner {
+			font-family: "tensentype-ruihei", "Microsoft YaHei", sans-serif;
+			font-weight: 400;
+			font-style: normal;
+			border: 0;
+			outline: initial;
+			color: #000;
+			font-size: 26px;
+			width: 100%;
+			max-width: 245px;
+			height: 56px;
+			border-radius: 6px;
+			background: linear-gradient(90deg, #e9a442 0%, #f6d5a7 56%, #e9a442 100%);
+		}
+
+		#raffleConfirmTC {
+			display: block !important;
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			background: transparent;
+			color: #fff;
+			width: 100%;
+			max-width: 400px;
+			padding: 15px;
+			border: 1px solid #fff;
+			opacity: 0;
+		}
+
+		#raffleConfirmCN {
+			display: block !important;
+			position: fixed;
+			right: 0;
+			bottom: 0;
+			background: transparent;
+			color: #fff;
+			width: 100%;
+			max-width: 400px;
+			padding: 15px;
+			border: 1px solid #fff;
+			opacity: 0;
+		}
+
+		.squareDept {
+			font-size: 38px;
+			line-height: 1.3;
+			transition: all 1s ease-in-out;
+			position: absolute;
+			opacity: 0;
+		}
+
+		.squareName {
+			line-height: 1;
+			padding: 0 0 10px;
+			transition: all 1s ease-in-out;
+		}
+
+		.squareUID {
+			line-height: 1;
+			transition: all 1s ease-in-out;
+		}
+
+		@keyframes fadeInOutbg {
+			0% {
+				background: linear-gradient(90deg, #e99931 5%, #924f01 85%);
+				opacity: 0;
+			}
+
+			100% {
+				background: linear-gradient(90deg, #e99931 5%, #924f01 85%);
+				opacity: 1;
+			}
+		}
+
+		@keyframes fadeInOut {
+			0% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+
+		.Squarediv.firstadd {
+
+			justify-content: flex-start;
+			padding: 0 60px 70px;
+			width: 100%;
+			max-width: 536px;
+			height: auto;
+			transition: all 2s ease-in-out;
+		}
+
+		.firstadd .winbg {
+			width: 100%;
+			height: 100%;
+			box-shadow: 0px 0px 10px #01132d;
+			font-family: "tensentype-ruihei", "Microsoft YaHei", sans-serif;
+			font-weight: 400;
+			font-style: normal;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			animation: fadeInOutbg 2s forwards ease-in-out;
+			animation-delay: 0s;
+			position: absolute;
+			z-index: 1;
+		}
+
+		.firstadd .squareDept,
+		.firstadd .squareName,
+		.firstadd .squareUID {
+			transform: scale(1);
+			z-index: 2;
+		}
+
+		.firstadd .squareDept {
+			font-size: 37px;
+			padding: 50px 0 60px;
+			transition: all 1s ease-in-out;
+			opacity: 1;
+			position: initial;
+		}
+
+		.firstadd .squareName {
+			padding: 0 0 25px;
+			transition: all 1s ease-in-out;
+			display: flex;
+            white-space:nowrap;
+		}
+
+		.firstadd .namenums {
+			display: flex;
+			z-index: 3;
+		}
+
+		.firstadd .namenum {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			z-index: 3;
+		}
+
+		.firstadd .namenums::after {
+			display: block;
+			content: url("images/bg2.png");
+			animation: fadeInOut 3s forwards ease-in-out;
+			animation-delay: 0s;
+			z-index: 3;
+		}
+
+		.firstadd .namenums::before {
+			display: block;
+			content: url("images/bg1.png");
+			animation: fadeInOut 3s forwards ease-in-out;
+			animation-delay: 0s;
+			z-index: 3;
+		}
+
+		.firstadd .squareUID {
+			font-size: 70px;
+		}
+
+		.firstnonopacity {
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="bg">
+		<div id="info">
+			<h2>2024聚英會 集團大獎</h2>
+		</div>
+		<div id="container"></div>
+		<div id="menu" style="display: flex; justify-content: center; ">
+			<!-- <button id="table" style="display: none;">TABLE</button> -->
+			<button id="sphere" style="display:none">進入壓軸抽獎活動</button>
+			<!-- <button id="helix" style="display: none;">HELIX</button> -->
+			<button id="raffleTC" class="" style="display:none">進入抽獎(非大陸)</button>
+			<button id="lotteryTC" style="display:none">開始抽獎(非大陸)</button>
+			<button id="stopTC" style="display:none">停止隨機(非大陸)</button>
+			<button id="openTC" style="display:none">開獎(非大陸)</button>
+			<button id="raffleCN" class="" style="display:none">進入抽獎(大陸)</button>
+			<button id="lotteryCN" style="display:none">開始抽獎(大陸)</button>
+			<button id="stopCN" style="display:none">停止隨機(大陸)</button>
+			<button id="openCN" style="display:none">開獎(大陸)</button>
+			<button id="AwardWinner" style="display:none">獲獎者</button>
+			<button id="raffleConfirmTC" class="">進入抽獎(非大陸)</button>
+			<button id="raffleConfirmCN" class="">進入抽獎(大陸)</button>
+		</div>
+		<div class=" prizeElement prizeElementTC" data-wow-duration="2s" data-wow-delay="0s">
+			<div class="prizetitle">非大陸區得獎者</div>
+			<div class="department"></div>
+			<div class="name"></div>
+			<div class="uid"></div>
+		</div>
+		<div class="prizeElement prizeElementCN" data-wow-duration="2s" data-wow-delay="0s">
+			<div class="prizetitle">大陸區得獎者</div>
+			<div class="department"></div>
+			<div class="name"></div>
+			<div class="uid"></div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script src="main.js"></script>
+	<script type="importmap">
+			{
+				"imports": {
+					"three": "../build/three.module.js",
+					"three/addons/": "./jsm/"
+				}
+			}
+		</script>
+
+	<script type="module">
+
+		import * as THREE from 'three';
+
+		import TWEEN from 'three/addons/libs/tween.module.js';
+		import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
+		import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
+
+		//全域地區
+		let globalSquareRegion = "TC";
+		//引入json非大陸人員資料
+		let raffleDataListTC
+		//引入json大陸人員資料
+		let raffleDataListCN
+
+		let camera, scene, renderer;
+		let controls;
+
+		let prizeObject;
+		let objects = [];
+		let targets = { table: [], sphere: [], helix: [], grid: [] };
+		let sphereGroup = new THREE.Group(); // Create a group for the sphere
+		const buttonRaffleTC = document.getElementById('raffleTC');
+		const buttonLotteryTC = document.getElementById('lotteryTC');
+		const buttonStopTC = document.getElementById('stopTC');
+		const buttonOpenTC = document.getElementById('openTC');
+		const buttonRaffleCN = document.getElementById('raffleCN');
+		const buttonLotteryCN = document.getElementById('lotteryCN');
+		const buttonStopCN = document.getElementById('stopCN');
+		const buttonOpenCN = document.getElementById('openCN');
+		const buttonAwardWinner = document.getElementById('AwardWinner');
+
+		// 3D ANIMATION
+		const geometry = new THREE.BoxGeometry(50, 50, 50); // Adjust the size as needed
+		const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, transparent: true, opacity: 0 }); // Transparent material
+		let square = new THREE.Mesh(geometry, material);
+		let angle = 0;
+		let radius = 1100;
+		let texttime;
+		let globalRotate; // Adjust the speed of rotation
+		let globalRotatey; // Adjust the speed of rotation
+		let globalRotatestop; // Adjust the speed of rotation
+		let globaltextsetInterval;
+
+        localStorage.removeItem("非大陸");
+        localStorage.removeItem("大陸");
+		
+
+		GetData()
+		setTimeout(()=>{
+			init();
+			animate();
+			clearInterval(texttime);
+			// 創建3D Square
+			createSquareAndRotate(800, 0.02, 0.05, false, "TC");
+		},2000)
+
+		function GetData(){
+			fetchDataTC()
+			fetchDataCN()
+		}
+
+		function fetchDataTC() {
+			$.ajax({
+				type: "POST",
+				crossDomain: true,
+				cache: false,
+				contentType: "application/json; charset=utf-8",
+				url: "http://mobiletw.digiwin.com/weixinApp/YearEndBanquet2024/api/DscYEInfo/GetRaffleAll?key=2024Dsc0201YE&region=OC",
+				dataType: "json",
+				success: function (data) {
+					console.log(data)
+					raffleDataListTC = data;
+				},
+				error: function (thrownError) {
+					raffleDataListTC = emergencyRaffleDataTC;
+					console.log(thrownError);
+				}
+			});
+		}
+
+		function fetchDataCN() {
+			$.ajax({
+				type: "POST",
+				crossDomain: true,
+				cache: false,
+				contentType: "application/json; charset=utf-8",
+				url: "http://mobiletw.digiwin.com/weixinApp/YearEndBanquet2024/api/DscYEInfo/GetRaffleAll?key=2024Dsc0201YE&region=CN",
+				dataType: "json",
+				success: function (data) {
+					console.log(data)
+					raffleDataListCN = data;
+				},
+				error: function (thrownError) {
+					raffleDataListCN = emergencyRaffleDataCN;
+					console.log(thrownError);
+				}
+			});
+		}
+		// 清除舊的 div 並重新建立新的 div
+		function clearAndRebuildDiv() {
+			var container = document.getElementById('container');
+
+			console.log(container.children.length)
+			// 清除 container 的子元素
+			while (container.children.length > 0) {
+				container.removeChild(container.children[0]);
+			}
+
+			// 在這裡加入你建立新 div 的邏輯
+			// ...
+
+			console.log("清除舊的 div 並重新建立新的 div");
+		}
+
+		//製作圓球
+		function init() {
+			// 清除舊的 div 並重新建立新的 div
+			// clearAndRebuildDiv();
+			camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
+			camera.position.z = 3000;
+
+			scene = new THREE.Scene();
+			// console.log(localStorage.getItem("非大陸"))
+			if (localStorage.getItem("非大陸") && localStorage.getItem("大陸")) {
+				document.querySelector(".prizeElementTC").style.display = "none";
+				document.querySelector(".prizeElementCN").style.display = "none";
+
+			}
+			// table
+			if (globalSquareRegion === "TC") {
+				objects = [];
+				sphereGroup = new THREE.Group()
+				console.log("進入TC圓球")
+				let shuffledDataTC = raffleDataListTC.slice(); // 複製一份資料以免修改原始陣列
+				for (var i = shuffledDataTC.length - 1; i > 0; i--) {
+					var j = Math.floor(Math.random() * (i + 1));
+					var temp = shuffledDataTC[i];
+					shuffledDataTC[i] = shuffledDataTC[j];
+					shuffledDataTC[j] = temp;
+				}
+				// 從打亂後的陣列中選取前300筆資料
+				let randomSampleTC = shuffledDataTC.slice(0, 200);
+				for (let i = 0; i < randomSampleTC.length; i++) {
+					const element = document.createElement('div');
+					const numberToDisplay = (i % 5) + 1;
+					element.classList.add(`element${numberToDisplay}`);
+					element.classList.add('element');
+					element.style.opacity = Math.random() * 0.8 + 0.4;
+
+					const number = document.createElement('div');
+					number.className = 'number';
+					number.textContent = (i / 5) + 1;
+
+					const symbol = document.createElement('div');
+					symbol.className = 'symbol';
+					symbol.textContent = randomSampleTC[i].Name;
+					element.appendChild(symbol);
+
+					const details = document.createElement('div');
+					details.className = 'details';
+					details.innerHTML = randomSampleTC[i].UID; // + '<br>' + table[ i + 2 ];
+					element.appendChild(details);
+
+					const objectCSS = new CSS3DObject(element);
+					objectCSS.position.x = Math.random() * 4000 - 2000;
+					objectCSS.position.y = Math.random() * 4000 - 2000;
+					objectCSS.position.z = Math.random() * 4000 - 2000;
+					scene.add(objectCSS);
+
+					objects.push(objectCSS);
+
+					sphereGroup.add(objectCSS);
+					// Add each object to the group
+					scene.add(sphereGroup); // Add the group to the scene
+
+					const object = new THREE.Object3D();
+					object.position.x = (randomSampleTC[i + 3] * 140) - 1330;
+					object.position.y = - (randomSampleTC[i + 4] * 180) + 990;
+
+					targets.table.push(object);
+				}
+			} else {
+				objects = [];
+				sphereGroup = new THREE.Group()
+				console.log("進入CN圓球")
+				let shuffledDataCN = raffleDataListCN.slice(); // 複製一份資料以免修改原始陣列
+				for (var i = shuffledDataCN.length - 1; i > 0; i--) {
+					var j = Math.floor(Math.random() * (i + 1));
+					var temp = shuffledDataCN[i];
+					shuffledDataCN[i] = shuffledDataCN[j];
+					shuffledDataCN[j] = temp;
+				}
+				// 從打亂後的陣列中選取前300筆資料
+				let randomSampleCN = shuffledDataCN.slice(0, 200);
+				console.log(randomSampleCN)
+				for (let i = 0; i < randomSampleCN.length; i++) {
+					const element = document.createElement('div');
+					const numberToDisplay = (i % 5) + 1;
+					element.classList.add(`element${numberToDisplay}`);
+					element.classList.add('element');
+					element.style.opacity = Math.random() * 0.8 + 0.4;
+
+					const number = document.createElement('div');
+					number.className = 'number';
+					number.textContent = (i / 5) + 1;
+
+					const symbol = document.createElement('div');
+					symbol.className = 'symbol';
+					symbol.textContent = randomSampleCN[i].Name;
+					element.appendChild(symbol);
+
+					const details = document.createElement('div');
+					details.className = 'details';
+					details.innerHTML = randomSampleCN[i].UID; // + '<br>' + table[ i + 2 ];
+					element.appendChild(details);
+
+					const objectCSS = new CSS3DObject(element);
+					objectCSS.position.x = Math.random() * 4000 - 2000;
+					objectCSS.position.y = Math.random() * 4000 - 2000;
+					objectCSS.position.z = Math.random() * 4000 - 2000;
+					scene.add(objectCSS);
+
+					objects.push(objectCSS);
+
+					sphereGroup.add(objectCSS);
+					// Add each object to the group
+					scene.add(sphereGroup); // Add the group to the scene
+
+					const object = new THREE.Object3D();
+					object.position.x = (randomSampleCN[i + 3] * 140) - 1330;
+					object.position.y = - (randomSampleCN[i + 4] * 180) + 990;
+
+					targets.table.push(object);
+				}
+			}
+
+
+
+			// sphere
+
+			const vector = new THREE.Vector3();
+
+
+			for (let i = 0, l = objects.length; i < l; i++) {
+
+				const phi = Math.acos(- 1 + (2 * i) / l);
+				const theta = Math.sqrt(l * Math.PI) * phi;
+
+				const object = new THREE.Object3D();
+
+				object.position.setFromSphericalCoords(800, phi, theta);
+
+				vector.copy(object.position).multiplyScalar(2);
+
+				object.lookAt(vector);
+
+				targets.sphere.push(object);
+
+
+			}
+
+			//=============================================================================
+
+			renderer = new CSS3DRenderer();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			document.getElementById('container').appendChild(renderer.domElement);
+
+			controls = new TrackballControls(camera, renderer.domElement);
+			controls.minDistance = 500;
+			controls.maxDistance = 26000;
+			controls.addEventListener('change', render);
+
+
+			// 變方格狀
+			// setTimeout(() => {
+			// 	//buttonGrid.click();
+			// 	console.log("This message is shown after a delay of 5 seconds.");
+			// }, 5080);
+
+			// 開始Zoom In
+			// setTimeout(() => {
+			// 	camera.position.x = 0;
+			// 	camera.position.y = 0;
+			// 	camera.position.z = 20000;
+			// 	zoomIn(500);
+			// 	console.log("This message is shown after a delay of 5 seconds.");
+			// }, 10080);
+
+			// 變球狀
+			setTimeout(() => {
+				transform(targets.sphere, 2000, "");
+			}, 0);
+
+
+
+			window.addEventListener('resize', onWindowResize);
+
+			//
+			// Add event listeners
+			document.addEventListener('mousemove', onMouseMove, false);
+			document.addEventListener('wheel', onDocumentMouseWheel, false);
+
+		}
+
+		// 進入抽獎(非大陸) 按鈕
+		// const buttonRaffleTC = document.getElementById('raffleTC');
+		buttonRaffleTC.addEventListener('click', function () {
+			globalSquareRegion = "TC";
+			// document.querySelector(".personnelTC .squareDept").style.opacity = "0";
+			// document.querySelector(".first.personnelTC").classList.remove("firstadd");
+			if (localStorage.getItem("非大陸")) {
+				console.log("15616")
+				$(".prizeElement").attr("style", "visibility: hidden;");
+				document.querySelectorAll(".Squarediv").forEach(function (squareDiv) {
+					squareDiv.style.visibility = 'visible';
+				});
+				setTimeout(() => {
+					scatterAndReset(targets.table, 700, "TC"); // Original function
+				}, 0);
+				// createSquareAndRotate(800, 0.02, 0.05, false, "TC");
+			} else {
+				console.log("5555")
+				setTimeout(() => {
+					scatterAndReset(targets.table, 700, "TC"); // Original function
+				}, 0);
+			}
+
+			//把大陸方塊隱藏
+
+			if (localStorage.getItem("大陸")) {
+				document.querySelector(".first.personnelCN").classList.add("firstnonopacity");
+			}
+		});
+
+		// 開始抽獎(非大陸) 按鈕
+		// const buttonLotteryTC = document.getElementById('lotteryTC');
+		buttonLotteryTC.addEventListener('click', function () {
+			startSelfSpin(6000, 10, "stopTC");
+			globaltextsetInterval = 100;
+			globalRotate = 0.03;
+			globalRotatey = 0.03;
+			globalRotatestop = false;
+			animateSquareRotate();
+		});
+
+		// 停止隨機(非大陸) 按鈕
+		// const buttonStopTC = document.getElementById('stopTC');
+		buttonStopTC.addEventListener('click', function () {
+			// createSquareAndRotate(100, 0.05,0.2, true);
+			buttonStopTC.style.display = 'none';
+			transform(targets.sphere, 2000, "openTC");
+		});
+
+		//開獎(非大陸) 按鈕
+		// const buttonOpenTC = document.getElementById('openTC');
+		buttonOpenTC.addEventListener('click', function () {
+			globalRotatestop = true;
+			animateSquareRotate("TC");
+			buttonOpenTC.style.display = 'none';
+
+			if (localStorage.getItem("非大陸") && localStorage.getItem("大陸")) {
+				console.log("123")
+			} else {
+				setTimeout(() => {
+					document.getElementById('raffleCN').style.display = 'block';
+				}, 8000)
+			}
+
+		})
+
+		//進入抽獎(大陸) 按鈕
+		// const buttonRaffleCN = document.getElementById('raffleCN');
+		buttonRaffleCN.addEventListener('click', function () {
+			// document.querySelector(".first.personnelTC").style.visibility = 'hidden';
+			// document.querySelector(".first.personnelCN").classList.remove("firstadd");
+			globalSquareRegion = "CN";
+			if (localStorage.getItem("大陸")) {
+				$(".prizeElement").attr("style", "visibility: hidden;");
+				document.querySelectorAll(".Squarediv").forEach(function (squareDiv) {
+					squareDiv.style.visibility = 'visible';
+				});
+				setTimeout(() => {
+					scatterAndReset(targets.table, 700, "CN"); // Original function
+				}, 0);
+				// createSquareAndRotate(800, 0.02, 0.05, false, "TC");
+			} else {
+				clearAndRebuildDiv();
+				init();
+				setTimeout(() => {
+					scatterAndReset(targets.table, 700, "CN"); // Original function
+				}, 0);
+				clearInterval(texttime);
+				createSquareAndRotate(800, 0.02, 0.05, false, "CN");
+			}
+
+			//把非大陸方塊隱藏
+			if (localStorage.getItem("非大陸")) {
+				document.querySelector(".first.personnelTC").classList.add("firstnonopacity");
+			}
+		});
+
+		//開始抽獎(大陸) 按鈕
+		// const buttonLotteryCN = document.getElementById('lotteryCN');
+		buttonLotteryCN.addEventListener('click', function () {
+			startSelfSpin(6000, 10, "stopCN");
+			globaltextsetInterval = 100;
+			globalRotate = 0.03;
+			globalRotatey = 0.03;
+			globalRotatestop = false;
+			animateSquareRotate();
+			// transform(targets.sphere, 2000);
+			// prizeObject.visible = true;
+			// transformPrize(prizeObject, 1000);
+			//判斷有沒有抽過非大陸區
+			// if (localStorage.getItem("台灣") != null) {
+			// 	localStorage.setItem("大陸", `${empName.textContent}|${empUID.textContent}`)
+			// } else {
+			// 	localStorage.setItem("台灣", `${empName.textContent}|${empUID.textContent}`)
+			// }
+
+		});
+
+		//停止隨機(大陸) 按鈕
+		// const buttonStopCN = document.getElementById('stopCN');
+		buttonStopCN.addEventListener('click', function () {
+			buttonStopCN.style.display = 'none';
+			transform(targets.sphere, 2000, "openCN");
+		});
+
+		//開獎(大陸) 按鈕
+		// const buttonOpenCN = document.getElementById('openCN');
+		buttonOpenCN.addEventListener('click', function () {
+			if (localStorage.getItem("非大陸") && localStorage.getItem("大陸")) {
+				document.getElementById('AwardWinner').style.display = 'none';
+			} else {
+				setTimeout(() => {
+					document.getElementById('AwardWinner').style.display = 'block';
+				}, 8000)
+			}
+			globalRotatestop = true;
+			animateSquareRotate("CN");
+
+			buttonOpenCN.style.display = 'none';
+			// localStorage.setItem("大陸", "1");
+		})
+
+		//獲獎者 按鈕
+		// const buttonAwardWinner = document.getElementById('AwardWinner');
+		buttonAwardWinner.addEventListener('click', function () {
+			$(".prizeElementTC").addClass("prizeElementLeft");
+			$(".prizeElementCN").addClass("prizeElementRight");
+			$(".prizeElement").attr("style", "visibility: visible;");
+			document.querySelectorAll(".Squarediv").forEach(function (squareDiv) {
+				squareDiv.classList.add("firstnonopacity");
+			});
+			buttonAwardWinner.style.display = 'none';
+			if (localStorage.getItem("大陸") && localStorage.getItem("非大陸")) {
+				buttonRaffleTC.classList.add("buttonRaffleTC");
+				buttonRaffleCN.classList.add("buttonRaffleCN");
+			}
+		})
+
+		const buttonRaffleConfirmTC = document.getElementById('raffleConfirmTC');
+		buttonRaffleConfirmTC.addEventListener('click', RaffleConfirmTC);
+		function RaffleConfirmTC(event) {
+			globalSquareRegion = "TC";
+			var result = confirm('確定執行操作嗎？');
+			if (result) {
+				clearAndRebuildDiv();
+				init();
+				clearInterval(texttime);
+				createSquareAndRotate(800, 0.02, 0.05, false, "TC");
+
+				setTimeout(() => {
+					scatterAndReset(targets.table, 700, "TC"); // Original function
+				}, 0);
+				buttonLotteryCN.style.display = 'none';
+				buttonStopCN.style.display = 'none';
+				buttonOpenCN.style.display = 'none';
+				buttonLotteryTC.style.display = 'none';
+				buttonStopTC.style.display = 'none';
+				buttonOpenTC.style.display = 'none';
+				buttonAwardWinner.style.display = 'none';
+			} else {
+                // console.log("33284")
+				// document.querySelectorAll(".prizeElement").forEach(function (sDiv) {
+				// 	sDiv.style.visibility = 'visible';
+				// });
+			}
+
+			event.stopPropagation()
+		}
+		const buttonRaffleConfirmCN = document.getElementById('raffleConfirmCN');
+		buttonRaffleConfirmCN.addEventListener('click', RaffleConfirmCN);
+		function RaffleConfirmCN(event) {
+			globalSquareRegion = "CN";
+			var result = confirm('確定執行操作嗎？');
+			if (result) {
+				clearAndRebuildDiv();
+				init();
+				clearInterval(texttime);
+				createSquareAndRotate(800, 0.02, 0.05, false, "CN");
+
+				setTimeout(() => {
+					scatterAndReset(targets.table, 700, "CN"); // Original function
+				}, 0);
+				buttonLotteryCN.style.display = 'none';
+				buttonStopCN.style.display = 'none';
+				buttonOpenCN.style.display = 'none';
+				buttonLotteryTC.style.display = 'none';
+				buttonStopTC.style.display = 'none';
+				buttonOpenTC.style.display = 'none';
+				buttonAwardWinner.style.display = 'none';
+			} else {
+				// document.querySelectorAll(".prizeElement").forEach(function (sDiv) {
+				// 	sDiv.style.visibility = 'visible';
+				// });
+			}
+
+			event.stopPropagation();
+		}
+
+		//圓球發散動畫
+		function scatterAndReset(targets, duration, model) {
+
+			TWEEN.removeAll(); // 清除之前的動畫
+
+			for (let i = 0; i < objects.length; i++) {
+				const object = objects[i];
+				const target = targets[i];
+
+				new TWEEN.Tween(object.position)
+					.to({ x: Math.random() * 4000 - 2000, y: Math.random() * 4000 - 2000, z: Math.random() * 4000 - 2000 }, duration)
+					.easing(TWEEN.Easing.Exponential.InOut)
+					.start();
+
+				new TWEEN.Tween(object.rotation)
+					.to({ x: 0, y: 0, z: 0 }, duration) // 將旋轉歸零
+					.easing(TWEEN.Easing.Exponential.InOut)
+					.start();
+			}
+
+			new TWEEN.Tween(this)
+				.to({}, duration * 2)
+				.onUpdate(render)
+				.start()
+				.onComplete(() => {
+					// 當動畫完成時執行的程式碼
+					console.log('Finished scatterAndReset!');
+					// 顯示開始抽獎的按鈕
+					var buttonLotteryTC = document.getElementById('lotteryTC');
+					var buttonLotteryCN = document.getElementById('lotteryCN');
+
+					switch (model) {
+						case 'TC': {
+							startSelfSpin(6000, 2, "lotteryTC");
+							buttonLotteryTC.style.display = 'block';
+							break;
+						}
+						case 'CN': {
+							startSelfSpin(6000, 2, "lotteryTC")
+							buttonLotteryCN.style.display = 'block';
+							break;
+						}
+						default: {
+							break;
+						}
+					}
+				});
+
+			// 關閉進入抽獎的按鈕
+			var buttonRaffleTC = document.getElementById('raffleTC');
+			var buttonRaffleCN = document.getElementById('raffleCN');
+			buttonRaffleCN.style.display = 'none';
+			buttonRaffleTC.style.display = 'none';
+		}
+
+		// 合成3D圓球動畫
+		function transform(targets, duration, model) {
+
+			TWEEN.removeAll();
+
+			for (let i = 0; i < objects.length; i++) {
+
+				const object = objects[i];
+				const target = targets[i];
+
+				new TWEEN.Tween(object.position)
+					.to({ x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration)
+					.easing(TWEEN.Easing.Exponential.InOut)
+					.start();
+
+				new TWEEN.Tween(object.rotation)
+					.to({ x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration)
+					.easing(TWEEN.Easing.Exponential.InOut)
+					.start();
+
+			}
+
+			new TWEEN.Tween(this)
+				.to({}, duration * 2)
+				.onUpdate(render)
+				.start()
+				.onComplete(() => {
+					// 顯示Raffle Div
+					var raffleDivTC = document.getElementById('raffleTC');
+					var raffleDivCN = document.getElementById('raffleTC');
+					var openDivTC = document.getElementById('openTC');
+					var openDivCN = document.getElementById('openCN');
+
+					// When first tween is complete, start self-spin function
+					console.log('finished tween!');
+					switch (model) {
+						case 'openTC': {
+							startSelfSpin(6000, 2, "")
+							openDivTC.style.display = 'block';
+							break;
+						}
+						case 'openCN': {
+							startSelfSpin(6000, 2, "")
+							openDivCN.style.display = 'block';
+							break;
+						}
+						default: {
+							if (localStorage.getItem("非大陸") && localStorage.getItem("大陸")) {
+								raffleDivTC.style.display = "none";
+								raffleDivCN.style.display = "none";
+							} else {
+								raffleDivTC.style.display = "block";
+								raffleDivCN.style.display = "block";
+							}
+							startSelfSpin(6000, 2, "")
+							break;
+						}
+					}
+
+
+
+				});
+		}
+
+		// 3D ANIMATION - 創建Square，在正中心環繞旋轉
+		function createSquareAndRotate(textsetInterval, speed, speedx, stop, area) {
+			console.log("155")
+
+			if (square) {
+				scene.remove(square); // Remove the existing square if it exists
+				// 清除旧的子元素
+				while (square.children.length > 0) {
+					square.remove(square.children[0]);
+				}
+				console.log("清除")
+
+			}
+
+			globaltextsetInterval = textsetInterval;
+			globalRotate = speed;
+			globalRotatey = speedx;
+			globalRotatestop = stop;
+
+			square.position.z = 0; // 0 units away from the Z-axis
+
+			scene.add(square);
+
+			const createTextSide = (text, x, y, z, ry, color, first, personnel) => {
+				const div = document.createElement('div');
+				div.classList.add('Squarediv');
+				div.classList.add('hover-effect');
+				if (first === "first") {
+					div.classList.add('first');
+				}
+				if (personnel === "TC") {
+					div.classList.add('personnelTC');
+				}
+				if (personnel === "CN") {
+					div.classList.add('personnelCN');
+				}
+
+				div.style.backgroundColor = `${color}`;
+
+
+
+				//隨機姓名
+
+				const dept = document.createElement('div');
+				dept.className = 'dept squareDept ';
+				div.appendChild(dept);
+
+				//包覆名字跟工號的div
+				const namenums = document.createElement('div');
+				namenums.className = 'namenums squareNamenum ';
+				div.appendChild(namenums);
+
+				const namenum = document.createElement('div');
+				namenum.className = 'namenum squareNamenum ';
+				namenums.appendChild(namenum);
+
+				const symbol = document.createElement('div');
+				symbol.className = 'symbol squareName ';
+				namenum.appendChild(symbol);
+
+				const details = document.createElement('div');
+				details.className = 'details squareUID ';
+				namenum.appendChild(details);
+
+				//得獎背景
+				const winbg = document.createElement('div');
+				winbg.className = 'winbg squareWinbg ';
+				div.appendChild(winbg);
+
+
+
+				const textObject = new CSS3DObject(div);
+				textObject.position.set(x, y, z);
+				textObject.rotation.y = ry;
+
+				return textObject;
+			};
+
+			// Front
+			switch (area) {
+				case 'TC': {
+					square.add(createTextSide('Front', 0, 0, 175, 0, "", "first", "TC"));
+					break;
+				}
+				case 'CN': {
+					square.add(createTextSide('Front', 0, 0, 175, 0, "", "first", "CN"));
+					break;
+				}
+				default: {
+					break;
+				}
+			}
+			// Back
+			switch (area) {
+				case 'TC': {
+					square.add(createTextSide('Back', 0, 0, -175, Math.PI, "#52c187", "", "TC"));
+					break;
+				}
+				case 'CN': {
+					square.add(createTextSide('Back', 0, 0, -175, Math.PI, "#52c187", "", "CN"));
+					break;
+				}
+				default: {
+					break;
+				}
+			}
+			// Left
+			switch (area) {
+				case 'TC': {
+					square.add(createTextSide('Left', -175, 0, 0, -Math.PI / 2, "#e86bb0", "", "TC"));
+					break;
+				}
+				case 'CN': {
+					square.add(createTextSide('Left', -175, 0, 0, -Math.PI / 2, "#e86bb0", "", "CN"));
+					break;
+				}
+				default: {
+					break;
+				}
+			}
+
+			// Right
+			switch (area) {
+				case 'TC': {
+					square.add(createTextSide('Right', 175, 0, 0, Math.PI / 2, "#e56161", "", "TC"));
+					break;
+				}
+				case 'CN': {
+					square.add(createTextSide('Right', 175, 0, 0, Math.PI / 2, "#e56161", "", "CN"));
+					break;
+				}
+				default: {
+					break;
+				}
+			}
+
+
+			animateSquareRotate();
+
+			let textUpdateCounter = 0;
+			function updateTextSides() {
+				square.children.forEach(side => {
+					let randomObj;
+					if (globalSquareRegion === "TC") {
+						randomObj = randomRaffleWithoutRemove(raffleDataListTC);
+					} else {
+						randomObj = randomRaffleWithoutRemove(raffleDataListCN);
+					}
+
+					const deptDiv = side.element.children[0]; // 'symbol' div
+					const symbolDiv = side.element.children[1].children[0].children[0]; // 'symbol' div
+					const detailsDiv = side.element.children[1].children[0].children[1]; // 'details' div
+					deptDiv.textContent = randomObj.Dept;
+					symbolDiv.textContent = randomObj.Name;
+					detailsDiv.textContent = randomObj.UID;
+				});
+				textUpdateCounter++;
+			}
+			texttime = setInterval(updateTextSides, textsetInterval); // Update text every 0.1 second
+			console.log("還在動")
+		}
+
+		function animateSquareRotate(area) {
+			if (globalRotatestop) {
+
+				// 如果停止旋轉，使用Tween.js進行平滑過渡到指定位置和旋轉
+				new TWEEN.Tween(square.position)
+					.to({ x: 0, z: 1000 }, 4000) // 1000毫秒內移動到x: 0, z: 0
+					.start();
+
+				new TWEEN.Tween(square.rotation)
+					.to({ y: 0 }, 6000) // 1000毫秒內旋轉到y: 0
+					.onComplete(() => {
+
+						//查看是否有first的class，沒有的話加上firstnonopacity
+						document.querySelectorAll(".Squarediv").forEach(function (squareDiv) {
+							if (!squareDiv.classList.contains("first")) {
+								squareDiv.classList.add("firstnonopacity");
+							}
+						});
+						globalRotate = 0; // 完成動畫後停止全局旋轉
+						clearInterval(texttime);
+						texttime = null;
+						console.log("停止進入")
+						switch (area) {
+							case 'TC': {
+								let winnerObj = randomRaffleAndRemove(raffleDataListTC);
+								document.querySelector(".personnelTC").classList.add("firstadd");
+								// document.querySelector(".personnelTC").classList.add("firstaddopacity");
+								localStorage.setItem("非大陸", `${winnerObj.Dept}|${winnerObj.Name}|${winnerObj.UID}`)
+								document.querySelector(".prizeElementTC .department").textContent = `${winnerObj.Dept}`;
+								document.querySelector(".prizeElementTC .name").textContent = `${winnerObj.Name}`;
+								document.querySelector(".prizeElementTC .uid").textContent = `${winnerObj.UID}`;
+								document.querySelector(".personnelTC .dept").textContent = `${winnerObj.Dept}`;
+								document.querySelector(".personnelTC .symbol").textContent = `${winnerObj.Name}`;
+								document.querySelector(".personnelTC .details").textContent = `${winnerObj.UID}`;
+								document.querySelector(".personnelTC .squareDept").style.opacity = "1";
+								document.querySelector(".personnelTC .squareDept").style.position = "initial";
+								// // 使用 Array.find() 查找对象
+								// const foundObject = raffleDataListTC.find(item => {
+								// 	console.log(item)
+								// 	console.log(raffleDataListTC.Name)
+								// 	return item.Name === winnerObj.selectedObjectName
+								// });
+								// // 判断是否找到
+								// if (foundObject) {
+								// 	console.log(`找到了对象，UID为 ${foundObject.UID}，Dept为 ${foundObject.Dept}`);
+								// } else {
+								// 	console.log(`未找到名字为 的对象`);
+								// }
+								break;
+							}
+							case 'CN': {
+								let winnerObj = randomRaffleAndRemove(raffleDataListCN);
+								document.querySelector(".personnelCN").classList.add("firstadd");
+								// document.querySelector(".personnelCN").classList.add("firstaddopacity");
+								localStorage.setItem("大陸", `${winnerObj.Dept}|${winnerObj.Name}|${winnerObj.UID}`)
+								document.querySelector(".prizeElementCN .department").textContent = `${winnerObj.Dept}`;
+								document.querySelector(".prizeElementCN .name").textContent = `${winnerObj.Name}`;
+								document.querySelector(".prizeElementCN .uid").textContent = `${winnerObj.UID}`;
+								document.querySelector(".personnelCN .dept").textContent = `${winnerObj.Dept}`;
+								document.querySelector(".personnelCN .symbol").textContent = `${winnerObj.Name}`;
+								document.querySelector(".personnelCN .details").textContent = `${winnerObj.UID}`;
+								document.querySelector(".personnelCN .squareDept").style.opacity = "1";
+								document.querySelector(".personnelCN .squareDept").style.position = "initial";
+								break;
+							}
+							default: {
+								break;
+							}
+						}
+						// setTimeout(() => {
+						// 	showSquareThroughSphere();
+						// }, 0)
+					})
+					.start();
+
+				return;
+			}
+			// 條件檢查：只有在 globalRotatestop 為 false 時，才進行遞迴呼叫
+			if (!globalRotatestop) {
+
+				requestAnimationFrame(animateSquareRotate);
+			}
+			// Calculate the square's position in orbit
+			square.position.x = radius * Math.cos(angle);
+			square.position.z = radius * Math.sin(angle);
+			square.rotation.y -= globalRotatey;
+
+			// Increment the angle for the next frame
+			angle += globalRotate;
+
+			TWEEN.update();
+			// if(globalRotatestop){
+			// 	globalRotate = 0; // 停止旋轉
+			// } 
+			renderer.render(scene, camera);
+		}
+
+		// 3D ANIMATION - 將所有名牌旋轉180%(by Y-Axis)
+		function rotateByGlobalYAxis(css3DObjGroup) {
+			css3DObjGroup.children.forEach(object => {
+				// Calculate the target quaternion for a 180-degree rotation around the Y axis
+				const targetQuaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI);
+				targetQuaternion.multiply(object.quaternion);
+
+				// Create a new tween for the rotation
+				new TWEEN.Tween(object.quaternion)
+					.to(targetQuaternion, 500) // Duration of 1 second
+					.onUpdate(() => {
+						object.quaternion.slerp(targetQuaternion, 0.1);
+					})
+					.start();
+			});
+		}
+		function showSquareThroughSphere() {
+			// 在這裡添加方塊放大的邏輯
+			// 例如，將方塊的尺寸放大為原來的兩倍
+			new TWEEN.Tween(square.position)
+				.to({ x: 0, y: 0, z: 0 }, 3000) // 在3秒內將位置設定到球體外
+				.onComplete(() => {
+
+				})
+				.start();
+		}
+		function onWindowResize() {
+
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+
+			renderer.setSize(window.innerWidth, window.innerHeight);
+
+			render();
+
+		}
+
+		function animate() {
+
+			requestAnimationFrame(animate);
+
+			TWEEN.update();
+
+			controls.update();
+
+		}
+
+		function render() {
+
+			renderer.render(scene, camera);
+
+		}
+
+		// seconds -轉的秒數
+		// speed - 轉的速度
+		function startSelfSpin(seconds, speed, model) {
+			TWEEN.removeAll();
+			// const spinTween = new TWEEN.Tween({ xRotate: 0 })
+			// 	.to({ xRotate: 180 }, 5000) // Spin the object (modify as needed for your object)
+			// 	.repeat(Infinity) // Repeat indefinitely
+			// 	.onUpdate((coords) => {
+			// 		// Update object's rotation or other properties
+
+			// 		sphereGroup.rotation.z = coords.xRotate;
+			// 		scene.rotation.y += 0.003; // Adjust this value to change rotation speed
+			// 		renderer.render(scene, camera);
+			// 		console.log(sphereGroup.rotation.z);
+			// 	})
+			// 	.start();
+
+			// Set the delay
+
+			// Tween setup for rotation
+			sphereGroup.rotation.y = 0; // Set the rotation of the group to 0
+			const targetRotation = { y: Math.PI * speed }; // Full rotation
+
+			let lotteryDivTC = document.getElementById('lotteryTC');
+			let stopDivTC = document.getElementById('stopTC');
+			let lotteryDivCN = document.getElementById('lotteryCN');
+			let stopDivCN = document.getElementById('stopCN');
+			const tween = new TWEEN.Tween(sphereGroup.rotation)
+				.to(targetRotation, seconds) // Rotate for xxx milliseconds
+				.onUpdate(render)
+				.repeat(Infinity) // Optional: Repeat the animation
+				.start();
+			console.log(sphereGroup.rotation)
+
+			switch (model) {
+				case 'lotteryTC': {
+					lotteryDivTC.style.display = 'none';
+					break;
+				}
+				case 'stopTC': {
+					lotteryDivTC.style.display = 'none';
+					setTimeout(() => {
+						stopDivTC.style.display = 'block';
+					}, 1000)
+					break;
+				}
+				case 'stopCN': {
+					console.log("123")
+					lotteryDivCN.style.display = 'none';
+					setTimeout(() => {
+						stopDivCN.style.display = 'block';
+					}, 1000)
+					break;
+				}
+				default: {
+					break;
+				}
+			}
+			console.log('Finished startSelfSpin..');
+		}
+
+
+		// Function to handle mouse move event
+		function onMouseMove(event) {
+
+			// console.log(`Camera Position on Drag: x=${camera.position.x}, y=${camera.position.y}, z=${camera.position.z}`);
+		}
+
+		// Function to handle mouse wheel event
+		function onDocumentMouseWheel(event) {
+
+			// console.log(`Camera Position on Scroll: x=${camera.position.x}, y=${camera.position.y}, z=${camera.position.z}`);
+		}
+
+		// 中獎者元素動態呈現
+		function transformPrize(targets, duration) {
+
+			const targetPosition = new THREE.Vector3(5, 5, 1000); // Target position
+			const targetRotation = new THREE.Euler(Math.PI, Math.PI, Math.PI); // Target rotation (in radians)
+			const targetScale = new THREE.Vector3(7, 7, 7); // Target scale (2x size)
+
+			// Move to target position
+			const moveTween = new TWEEN.Tween(targets.position)
+				.to({ x: targetPosition.x, y: targetPosition.y, z: targetPosition.z }, duration);
+
+			// Rotate to target rotation
+			const rotateTween = new TWEEN.Tween(targets.rotation)
+				.to({ x: targetRotation.x, y: targetRotation.y, z: targetRotation.z }, duration);
+
+			// Scale to target size
+			const scaleTween = new TWEEN.Tween(targets.scale)
+				.to({ x: targetScale.x, y: targetScale.y, z: targetScale.z }, duration);
+
+			moveTween.start();
+			rotateTween.start();
+			scaleTween.start();
+
+			// var raffleDiv = document.getElementById('raffle');
+			// var lotteryDiv = document.getElementById('lottery');
+			// lotteryDiv.style.display = 'none';
+			// raffleDiv.style.display = 'block';
+			// $(".prizeElement").addClass("prizeElementblock");
+		}
+
+		function zoomIn() {
+
+			// Increase the z position slowly
+			camera.position.z -= 100;
+
+			// Update the camera
+			camera.updateProjectionMatrix();
+
+			// Render the scene
+			renderer.render(scene, camera);
+
+			// Continue zooming out until reaching a certain distance
+			if (camera.position.z > 500) { // Set your desired limit
+
+				requestAnimationFrame(zoomIn);
+
+			}
+		}
+
+		function zoomOut(zPosition) {
+
+			// Increase the z position slowly
+			camera.position.z += 50;
+
+			// Update the camera
+			camera.updateProjectionMatrix();
+
+			// Render the scene
+			renderer.render(scene, camera);
+
+			// Continue zooming out until reaching a certain distance
+			if (camera.position.z < zPosition) { // Set your desired limit
+
+				requestAnimationFrame(zoomOut);
+
+			}
+		}
+
+
+	</script>
+</body>
+
+</html>

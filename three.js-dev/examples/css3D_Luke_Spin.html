@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rotate Group with Tween.js and Three.js</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <script src="https://threejs.org/build/three.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+    <script>
+        // Scene setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Create a group
+        const group = new THREE.Group();
+
+        // Add elements to the group (example: simple cube)
+        const geometry = new THREE.BoxGeometry();
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        const cube = new THREE.Mesh(geometry, material);
+        group.add(cube);
+
+        // Add the group to the scene
+        scene.add(group);
+
+        // Camera position
+        camera.position.z = 5;
+
+        // Tween setup for rotation
+        const targetRotation = { y: Math.PI * 2 }; // Full rotation
+        const tween = new TWEEN.Tween(group.rotation)
+            .to(targetRotation, 2000) // Rotate for 2000 milliseconds
+            .easing(TWEEN.Easing.Quadratic.Out)
+            .repeat(Infinity) // Optional: Repeat the animation
+            .start();
+
+        // Animation loop
+        function animate(time) {
+            requestAnimationFrame(animate);
+            TWEEN.update(time);
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+</body>
+</html>

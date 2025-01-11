@@ -1,0 +1,56 @@
+[
+    { 
+        "Name": "江峻宇", "UID": "20913", "Dept": "HRM價值交付部", "CityGo": "桃園", "CityBack": "桃園", "TableNum": "" 
+    }, 
+    {   
+        "Name": "傅思語", "UID": "21425", "Dept": "BPM價值交付部", "CityGo": "自行前往", "CityBack": "自行返回", "TableNum": "" 
+    }, 
+    {   
+        "Name": "陳羿成", "UID": "21434", "Dept": "離散車間產品二部", "CityGo": "自行前往(仍需打卡)", "CityBack": "自行返回", "TableNum": "" 
+    }, 
+    { 
+        "Name": "黃閔晟", "UID": "21415", "Dept": "行業經營二部", "CityGo": "自行前往(仍需打卡)", "CityBack": "自行返回", "TableNum": "" 
+    }, 
+    { 
+        "Name": "鄒華芹", "UID": "21417", "Dept": "北區共享服務部", "CityGo": "台北", "CityBack": "台北", "TableNum": "" 
+    }, 
+    { 
+        "Name": "游皓宇", "UID": "21481", "Dept": "整合規劃業務三部", "CityGo": "桃園", "CityBack": "桃園", "TableNum": "" 
+    }, 
+    { 
+        "Name": "張子珊", "UID": "21473", "Dept": "BPM價值交付部", "CityGo": "自行前往", "CityBack": "自行返回", "TableNum": "" 
+    }, 
+    {   
+        "Name": "劉駿耀", "UID": "21819", "Dept": "業務一部", "CityGo": "新竹", "CityBack": "自行返回", "TableNum": "" 
+    }, 
+    { 
+        "Name": "錢泓唯", "UID": "21816", "Dept": "資安分析組", "CityGo": "自行前往(仍需打卡)", "CityBack": "自行返回", "TableNum": "" 
+    }, 
+    { 
+        "Name": "張家源", "UID": "21818", "Dept": "客戶服務部", "CityGo": "自行前往(仍需打卡)", "CityBack": "自行返回", "TableNum": ""
+    }, 
+    { 
+        "Name": "許健性", "UID": "21874", "Dept": "客戶服務部", "CityGo": "自行前往(仍需打卡)", "CityBack": "自行返回", "TableNum": "" 
+    }, 
+    { 
+        "Name": "蘇俊融", "UID": "21876", "Dept": "維運五部", "CityGo": "台南", "CityBack": "台南", "TableNum": "" 
+    }, 
+    { 
+        "Name": "葉密榆", "UID": "09057", "Dept": "WorkFlow暨ERPII方案中心", "CityGo": "自行前往", "CityBack": "自行返回", "TableNum": "" 
+    }, 
+    { 
+        "Name": "楊千金", "UID": "09252", "Dept": "行業交付二部", "CityGo": "台北", "CityBack": "台北", "TableNum": "" 
+    }, 
+    { 
+        "Name": "鄭茹燕", "UID": "02032", "Dept": "數位價值部", "CityGo": "台北", "CityBack": "台北", "TableNum": "" 
+    }, 
+    { 
+        "Name": "謝嘉珊", "UID": "07556", "Dept": "數字運營方案事業部", "CityGo": "自行前往(仍需打卡)", "CityBack": "自行返回", "TableNum": "" 
+    }, 
+    { 
+        "Name": "吳鎮宇", "UID": "09261", "Dept": "HRM價值服務部", "CityGo": "台北", "CityBack": "台北", "TableNum": "" 
+    }, 
+    { 
+        "Name": "王齡翊", "UID": "05473", "Dept": "數位營銷部" 
+    }
+]
