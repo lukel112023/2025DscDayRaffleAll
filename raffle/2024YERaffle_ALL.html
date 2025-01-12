@@ -532,7 +532,7 @@
 		GetData()
 		setTimeout(()=>{
 			camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
-			camera.position.z = 500000;
+			camera.position.z = 2600; // need to be 500000
 
 			init();
 			
@@ -789,13 +789,13 @@
 			createSquareAndRotate(800, 0.02, 0.05, false, "TC");
 
 			// 創建Gif
-			createVideoElement();
+			//createVideoElement();
 
 			// 創建鼎新數智Logo
-			createDSCLogo_Transparent();
+			//createDSCLogo_Transparent();
 
 			// Camera Zoom-In
-			animate_ZoomIn();
+			//animate_CameraZoomIn();
 
 		} // END INIT()
 
@@ -1593,7 +1593,7 @@
 		
 
         // Animation loop - ZoomIn
-        function animate_ZoomIn() {
+        function animate_CameraZoomIn() {
             const currentTime = performance.now();
             const elapsedTime = currentTime - startTime;
 
@@ -1613,7 +1613,7 @@
 
             // Stop the animation once the duration is complete
             if (t < 1) {
-                requestAnimationFrame(animate_ZoomIn);
+                requestAnimationFrame(animate_CameraZoomIn);
             }
         }
 
