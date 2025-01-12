@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparent Video with Blue Background</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: rgb(104, 159, 255); /* Set the background color to blue */
+            overflow: hidden;
+        }
+
+        .video-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%; /* Adjust the width as needed */
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            pointer-events: none; /* Ensure video doesn't block clicks */
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video autoplay loop muted playsinline>
+            <source src="files/movie-webm.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</body>
+</html>

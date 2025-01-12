@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video with CSS3DRenderer</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "../build/three.module.js",
+                "three/addons/": "./jsm/"
+            }
+        }
+    </script>
+    <script type="module">
+		import * as THREE from 'three';
+
+        import TWEEN from 'three/addons/libs/tween.module.js';
+        import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
+        import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
+
+        // Scene, Camera, and Renderer setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+        camera.position.set(0, 0, 5000);
+
+        // CSS3DRenderer
+        const cssRenderer = new CSS3DRenderer();
+        cssRenderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(cssRenderer.domElement);
+
+        // Create a <video> element
+        const video = document.createElement('video');
+        video.src = 'files/movie-webm.webm'; // Replace with your video path
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.style.width = '100%'; // Ensure the video scales properly
+        video.style.height = '100%';
+        video.play().catch((err) => console.error('Video play error:', err));
+
+        // Wrap the <video> in a CSS3DObject
+        const videoElement = new CSS3DObject(video);
+        videoElement.position.set(0, 1000, 2600);
+        scene.add(videoElement);
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            cssRenderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Handle resizing
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            cssRenderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>

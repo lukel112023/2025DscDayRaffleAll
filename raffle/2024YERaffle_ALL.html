@@ -518,17 +518,24 @@
 		let globalRotatestop; // Adjust the speed of rotation
 		let globaltextsetInterval;
 
+		// Camera animation variables
+		// Used in function: animate_ZoomIn()
+		const startZ = 500000;
+		const endZ = 2600;
+		const duration = 9000; // 8 seconds
+		const startTime = performance.now();
+
         localStorage.removeItem("非大陸");
         localStorage.removeItem("大陸");
 		
 
 		GetData()
 		setTimeout(()=>{
+			camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
+			camera.position.z = 500000;
+
 			init();
-			animate();
-			clearInterval(texttime);
-			// 創建3D Square
-			createSquareAndRotate(800, 0.02, 0.05, false, "TC");
+			
 		},2000)
 
 		function GetData(){
@@ -593,10 +600,9 @@
 		function init() {
 			// 清除舊的 div 並重新建立新的 div
 			// clearAndRebuildDiv();
-			camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
-			camera.position.z = 3000;
-
+			
 			scene = new THREE.Scene();
+			
 			// console.log(localStorage.getItem("非大陸"))
 			if (localStorage.getItem("非大陸") && localStorage.getItem("大陸")) {
 				document.querySelector(".prizeElementTC").style.display = "none";
@@ -744,7 +750,7 @@
 
 			controls = new TrackballControls(camera, renderer.domElement);
 			controls.minDistance = 500;
-			controls.maxDistance = 26000;
+			controls.maxDistance =500000; // orig value=2600
 			controls.addEventListener('change', render);
 
 
@@ -777,7 +783,21 @@
 			document.addEventListener('mousemove', onMouseMove, false);
 			document.addEventListener('wheel', onDocumentMouseWheel, false);
 
-		}
+			animate();
+			clearInterval(texttime);
+			// 創建3D Square
+			createSquareAndRotate(800, 0.02, 0.05, false, "TC");
+
+			// 創建Gif
+			createVideoElement();
+
+			// 創建鼎新數智Logo
+			createDSCLogo_Transparent();
+
+			// Camera Zoom-In
+			animate_ZoomIn();
+
+		} // END INIT()
 
 		// 進入抽獎(非大陸) 按鈕
 		// const buttonRaffleTC = document.getElementById('raffleTC');
@@ -999,7 +1019,7 @@
 
 		//圓球發散動畫
 		function scatterAndReset(targets, duration, model) {
-
+			console.log('scatterAndReset..')
 			TWEEN.removeAll(); // 清除之前的動畫
 
 			for (let i = 0; i < objects.length; i++) {
@@ -1118,7 +1138,7 @@
 
 		// 3D ANIMATION - 創建Square，在正中心環繞旋轉
 		function createSquareAndRotate(textsetInterval, speed, speedx, stop, area) {
-			console.log("155")
+			console.log("創建正方體(圍繞旋轉)")
 
 			if (square) {
 				scene.remove(square); // Remove the existing square if it exists
@@ -1486,20 +1506,20 @@
 					break;
 				}
 			}
-			console.log('Finished startSelfSpin..');
+			console.log('Step1: StartSelfSpin..');
 		}
 
 
 		// Function to handle mouse move event
 		function onMouseMove(event) {
 
-			// console.log(`Camera Position on Drag: x=${camera.position.x}, y=${camera.position.y}, z=${camera.position.z}`);
+			console.log(`Camera Position on Drag: x=${camera.position.x}, y=${camera.position.y}, z=${camera.position.z}`);
 		}
 
 		// Function to handle mouse wheel event
 		function onDocumentMouseWheel(event) {
 
-			// console.log(`Camera Position on Scroll: x=${camera.position.x}, y=${camera.position.y}, z=${camera.position.z}`);
+			console.log(`Camera Position on Scroll: x=${camera.position.x}, y=${camera.position.y}, z=${camera.position.z}`);
 		}
 
 		// 中獎者元素動態呈現
@@ -1570,7 +1590,74 @@
 			}
 		}
 
+		
 
+        // Animation loop - ZoomIn
+        function animate_ZoomIn() {
+            const currentTime = performance.now();
+            const elapsedTime = currentTime - startTime;
+
+            // Calculate normalized time (0 to 1) and apply easing
+            let t = Math.min(elapsedTime / duration, 1); // Clamp t between 0 and 1
+            t = easeInOutCubic(t); // Apply easing function for smooth motion
+
+			//console.log('t:' + t);
+            // Update camera position
+            camera.position.z = startZ + t * (endZ - startZ);
+
+            // Log camera position (for debugging or tracking)
+            //console.log(`Camera Position: x=${camera.position.x}, y=${camera.position.y}, z=${camera.position.z}`);
+
+            // Render the scene
+            renderer.render(scene, camera);
+
+            // Stop the animation once the duration is complete
+            if (t < 1) {
+                requestAnimationFrame(animate_ZoomIn);
+            }
+        }
+
+		// Easing Function (Ease In-Out Cubic)
+        function easeInOutCubic(t) {
+            return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
+        
+		
+		// 創建貓頭鷹
+		function createVideoElement() {
+			// Create a <video> element
+			const video = document.createElement('video');
+			video.src = 'files/movie-webm.webm'; // Replace with your video path
+			video.autoplay = true;
+			video.loop = true;
+			video.muted = true;
+			video.style.width = '100%'; // Ensure the video scales properly
+			video.style.height = '100%';
+			video.play().catch((err) => console.error('Video play error:', err));
+
+			// Wrap the <video> in a CSS3DObject
+			const videoElement = new CSS3DObject(video);
+			videoElement.position.set(-500, 0, 800); 
+			scene.add(videoElement);
+
+		}
+
+		// 創建鼎新數智Logo
+		function createDSCLogo_Transparent() {
+			// Create an <img> element for the transparent image
+			const img = document.createElement('img');
+			img.src = 'files/Trans01.png'; // Replace with your image path
+			img.style.width = '500px'; // Adjust width
+			img.style.height = 'auto'; // Maintain aspect ratio
+			img.style.opacity = '1'; // Optional: Adjust opacity if needed
+
+			// Wrap the <img> element in a CSS3DObject
+			const imageObject = new CSS3DObject(img);
+
+			// Set the position of the CSS3DObject
+			imageObject.position.set(1500, 0, 0);
+			scene.add(imageObject);
+		}
 	</script>
 </body>
 
