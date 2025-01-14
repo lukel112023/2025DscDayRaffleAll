@@ -29,6 +29,9 @@
 			--element-background-color4: #51c8f3;
 			--element-background-color5: #1061c4;
 			--square-background-color: #00aff0;
+			--text-blue-color: #000064;
+			--yellow-border: #ffd200;
+			--yellow-gradient: linear-gradient(to right, #db921f 0%, #ffd200 30%, #ffd200 60%, #db921f 100%);
 		}
 		body {
 			font-weight: 400;
@@ -124,6 +127,10 @@
 			justify-content: center;
 			background: var(--square-background-color);
 		}
+		.Squarediv.first.firstadd{
+			background-image:var(--yellow-gradient);
+			color:var(--text-blue-color);
+		}
 
 		button {
 			color: rgba(127, 255, 255, 0.75);
@@ -147,8 +154,8 @@
 			width: 100%;
 			max-width: 400px;
 			/* height: 260px; */
-			background: linear-gradient(90deg, #e99931 5%, #924f01 85%);
-			box-shadow: 0px 0px 10px #01132d;
+			background: var(--yellow-gradient);
+			box-shadow: 0 0 0 2px inset var(--yellow-border);
 			/* border: 1px solid rgba(243, 214, 146, 0.93); */
 			font-family: "tensentype-ruihei", "Microsoft YaHei", sans-serif;
 			text-align: center;
@@ -163,12 +170,11 @@
 			align-items: center;
 			justify-content: space-evenly;
 			visibility: hidden;
-			--text-color:#000064;
 		}
 
 		.prizeElement .department {
 			/* font-weight: bold; */
-			color: var(--text-color);
+			color: var(--text-blue-color);
 			/* text-shadow: 0 0 5px rgba(81, 0, 255, 0.5); */
 			font-family: "tensentype-ruihei", "Microsoft YaHei", sans-serif;
 			font-weight: 100;
@@ -182,7 +188,7 @@
 
 		.prizeElement .name {
 			/* font-weight: bold; */
-			color: var(--text-color);
+			color: var(--text-blue-color);
 			/* text-shadow: 0 0 5px rgba(81, 0, 255, 0.5); */
 			font-family: "tensentype-ruihei", "Microsoft YaHei", sans-serif;
 			font-weight: 400;
@@ -197,7 +203,7 @@
 			font-weight: 400;
 			font-style: normal;
 			font-size: 58px;
-			color: var(--text-color);
+			color: var(--text-blue-color);
 			padding: 0 0 55px;
 			/* text-shadow: 0 0 5px rgba(255, 81, 0, 0.5); */
 			line-height: 1;
@@ -246,7 +252,7 @@
 			margin: 30px 0 0;
 			/* padding: 20px 0 0; */
 			display: inline-block;
-			background: linear-gradient(90deg, #e9a442 0%, #f6d5a7 56%, #e9a442 100%);
+			background: var(--yellow-gradient);
 			-webkit-background-clip: text;
 			color: transparent;
 		}
@@ -276,7 +282,8 @@
 			max-width: 245px;
 			height: 56px;
 			border-radius: 6px;
-			background: linear-gradient(90deg, #e9a442 0%, #f6d5a7 56%, #e9a442 100%);
+			background: var(--yellow-gradient);
+			box-shadow: 0 0 0 2px inset var(--yellow-border);
 		}
 
 		#raffleConfirmTC {
@@ -328,12 +335,12 @@
 
 		@keyframes fadeInOutbg {
 			0% {
-				background: linear-gradient(90deg, #e99931 5%, #924f01 85%);
+				/* background: linear-gradient(90deg, #e99931 5%, #924f01 85%); */
 				opacity: 0;
 			}
 
 			100% {
-				background: linear-gradient(90deg, #e99931 5%, #924f01 85%);
+				/* background: linear-gradient(90deg, #e99931 5%, #924f01 85%); */
 				opacity: 1;
 			}
 		}
@@ -439,7 +446,7 @@
 <body>
 	<div class="bg">
 		<div id="info">
-			<h2>2024聚英會 集團大獎</h2>
+			<h2>2025聚英會 集團大獎</h2>
 		</div>
 		<div id="container"></div>
 		<div id="menu" style="display: flex; justify-content: center; ">
