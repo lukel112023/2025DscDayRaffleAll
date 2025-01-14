@@ -22,6 +22,14 @@
 		})(document);
 	</script>
 	<style>
+		:root{
+			--element-background-color1: #00aff0;
+			--element-background-color2: #00e1ff;
+			--element-background-color3: #48b5f1;
+			--element-background-color4: #51c8f3;
+			--element-background-color5: #1061c4;
+			--square-background-color: #00aff0;
+		}
 		body {
 			font-weight: 400;
 			/* font-family: "Microsoft YaHei"; */
@@ -39,23 +47,23 @@
 		}
 
 		.element1 {
-			background-color: #ffae0d;
+			background-color: var(--element-background-color1);
 		}
 
 		.element2 {
-			background-color: #52c187;
+			background-color: var(--element-background-color2);
 		}
 
 		.element3 {
-			background-color: #e86bb0;
+			background-color: var(--element-background-color3);
 		}
 
 		.element4 {
-			background-color: #3b3bea;
+			background-color: var(--element-background-color4);
 		}
 
 		.element5 {
-			background-color: #e56161;
+			background-color: var(--element-background-color5);
 		}
 
 		.element {
@@ -114,7 +122,7 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			background: #ffae0d;
+			background: var(--square-background-color);
 		}
 
 		button {
@@ -1194,6 +1202,10 @@
 				return textObject;
 			};
 
+			const squareBackgroundColor2 = '#00e1ff';
+			const squareBackgroundColor3 = '#48b5f1';
+			const squareBackgroundColor4 = '#51c8f3';
+
 			// Front
 			switch (area) {
 				case 'TC': {
@@ -1211,11 +1223,11 @@
 			// Back
 			switch (area) {
 				case 'TC': {
-					square.add(createTextSide('Back', 0, 0, -175, Math.PI, "#52c187", "", "TC"));
+					square.add(createTextSide('Back', 0, 0, -175, Math.PI, squareBackgroundColor2, "", "TC"));
 					break;
 				}
 				case 'CN': {
-					square.add(createTextSide('Back', 0, 0, -175, Math.PI, "#52c187", "", "CN"));
+					square.add(createTextSide('Back', 0, 0, -175, Math.PI, squareBackgroundColor2, "", "CN"));
 					break;
 				}
 				default: {
@@ -1225,11 +1237,11 @@
 			// Left
 			switch (area) {
 				case 'TC': {
-					square.add(createTextSide('Left', -175, 0, 0, -Math.PI / 2, "#e86bb0", "", "TC"));
+					square.add(createTextSide('Left', -175, 0, 0, -Math.PI / 2, squareBackgroundColor3, "", "TC"));
 					break;
 				}
 				case 'CN': {
-					square.add(createTextSide('Left', -175, 0, 0, -Math.PI / 2, "#e86bb0", "", "CN"));
+					square.add(createTextSide('Left', -175, 0, 0, -Math.PI / 2, squareBackgroundColor3, "", "CN"));
 					break;
 				}
 				default: {
@@ -1240,11 +1252,11 @@
 			// Right
 			switch (area) {
 				case 'TC': {
-					square.add(createTextSide('Right', 175, 0, 0, Math.PI / 2, "#e56161", "", "TC"));
+					square.add(createTextSide('Right', 175, 0, 0, Math.PI / 2, squareBackgroundColor4, "", "TC"));
 					break;
 				}
 				case 'CN': {
-					square.add(createTextSide('Right', 175, 0, 0, Math.PI / 2, "#e56161", "", "CN"));
+					square.add(createTextSide('Right', 175, 0, 0, Math.PI / 2, squareBackgroundColor4, "", "CN"));
 					break;
 				}
 				default: {
