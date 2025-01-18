@@ -8,6 +8,8 @@
 	<link type="text/css" rel="stylesheet" href="main.css">
 	<link type="text/css" rel="stylesheet" href="animate.min.css">
 	<script src="wow.js"></script>
+	<!-- 引用外部JavaScript文件 -->
+    
 	<script src="raffleAllTC.js"></script>
 	<script src="raffleAllCN.js"></script>
 	<script>
@@ -489,9 +491,11 @@
 				}
 			}
 		</script>
-
+	<script type="module" src="app.js"></script>
 	<script type="module">
-
+		import { sendRunSynthesis } from './app.js';
+		import { connectAndStartSynthesis } from './app.js';
+		
 		import * as THREE from 'three';
 
 		import TWEEN from 'three/addons/libs/tween.module.js';
@@ -805,13 +809,16 @@
 			createSquareAndRotate(800, 0.02, 0.05, false, "TC");
 
 			// 創建Gif
-			//createVideoElement();
+			createVideoElement();
 
 			// 創建鼎新數智Logo
-			//createDSCLogo_Transparent();
+			createDSCLogo_Transparent();
+
 
 			// Camera Zoom-In
-			//animate_CameraZoomIn();
+			animate_CameraZoomIn();
+			
+			//nanaOwlTalk(`中獎者出爐，恭喜抽中集團大獎，請上台前領獎。`);
 
 		} // END INIT()
 
@@ -1325,6 +1332,12 @@
 				new TWEEN.Tween(square.position)
 					.to({ x: 0, z: 1000 }, 4000) // 1000毫秒內移動到x: 0, z: 0
 					.start();
+				
+				// Nana 01. 使用娜娜貓頭鷹語音前的WebSocket連線建立()
+				const waveStreamPlayer = new WavStreamPlayer({sampleRate: 16000});
+				waveStreamPlayer.connect();
+				connectAndStartSynthesis(waveStreamPlayer); // 开始 WebSocket 连接和语音合成
+				// >>End
 
 				new TWEEN.Tween(square.rotation)
 					.to({ y: 0 }, 6000) // 1000毫秒內旋轉到y: 0
@@ -1354,6 +1367,10 @@
 								document.querySelector(".personnelTC .details").textContent = `${winnerObj.UID}`;
 								document.querySelector(".personnelTC .squareDept").style.opacity = "1";
 								document.querySelector(".personnelTC .squareDept").style.position = "initial";
+								// Nana 02. 使用娜娜貓頭鷹語音
+								sendRunSynthesis(`中獎者出爐，恭喜${winnerObj.Dept}抽中集團大獎，請${winnerObj.Name}上台前領獎。`);
+
+								console.log('中獎者出爐，恭喜XXX部門抽中集團大獎，請朱友輝上台前領獎。');
 								// // 使用 Array.find() 查找对象
 								// const foundObject = raffleDataListTC.find(item => {
 								// 	console.log(item)
@@ -1366,6 +1383,7 @@
 								// } else {
 								// 	console.log(`未找到名字为 的对象`);
 								// }
+
 								break;
 							}
 							case 'CN': {
@@ -1381,12 +1399,19 @@
 								document.querySelector(".personnelCN .details").textContent = `${winnerObj.UID}`;
 								document.querySelector(".personnelCN .squareDept").style.opacity = "1";
 								document.querySelector(".personnelCN .squareDept").style.position = "initial";
+								// Nana 02. 使用娜娜貓頭鷹語音
+								sendRunSynthesis(`中獎者出爐，恭喜${winnerObj.Dept}抽中集團大獎，請${winnerObj.Name}上台前領獎。`);
+								
+								console.log('中獎者出爐，恭喜XXX部門抽中集團大獎，請朱友輝上台前領獎。');
+
 								break;
 							}
 							default: {
 								break;
 							}
 						}
+						
+
 						// setTimeout(() => {
 						// 	showSquareThroughSphere();
 						// }, 0)
@@ -1564,7 +1589,7 @@
 			moveTween.start();
 			rotateTween.start();
 			scaleTween.start();
-
+			
 			// var raffleDiv = document.getElementById('raffle');
 			// var lotteryDiv = document.getElementById('lottery');
 			// lotteryDiv.style.display = 'none';
@@ -1635,6 +1660,11 @@
             if (t < 1) {
                 requestAnimationFrame(animate_CameraZoomIn);
             }
+			else{
+				console.log('Finished Zoom-In..');
+				
+				
+			}
         }
 
 		// Easing Function (Ease In-Out Cubic)
@@ -1647,7 +1677,7 @@
 		function createVideoElement() {
 			// Create a <video> element
 			const video = document.createElement('video');
-			video.src = 'files/movie-webm.webm'; // Replace with your video path
+			video.src = 'files/OWL_0010000b.webm'; // Replace with your video path
 			video.autoplay = true;
 			video.loop = true;
 			video.muted = true;
@@ -1678,6 +1708,8 @@
 			imageObject.position.set(1500, 0, 0);
 			scene.add(imageObject);
 		}
+
+		
 	</script>
 </body>
 
