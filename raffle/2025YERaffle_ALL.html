@@ -263,7 +263,22 @@
 			background: url("images/bg.png") no-repeat center;
 		}
 
-		#sphere,
+		#begining {
+			font-family: "tensentype-ruihei", "Microsoft YaHei", sans-serif;
+			font-weight: 400;
+			font-style: normal;
+			border: 0;
+			outline: initial;
+			color: #000;
+			font-size: 36px;
+			width: 100%;
+			max-width: 345px;
+			height: 76px;
+			border-radius: 9px;
+			background: var(--yellow-gradient);
+			box-shadow: 0 0 0 2px inset var(--yellow-border);
+		}
+
 		#raffleTC,
 		#lotteryTC,
 		#raffleCN,
@@ -279,11 +294,11 @@
 			border: 0;
 			outline: initial;
 			color: #000;
-			font-size: 26px;
+			font-size: 36px;
 			width: 100%;
-			max-width: 245px;
-			height: 56px;
-			border-radius: 6px;
+			max-width: 345px;
+			height: 76px;
+			border-radius: 9px;
 			background: var(--yellow-gradient);
 			box-shadow: 0 0 0 2px inset var(--yellow-border);
 		}
@@ -453,7 +468,7 @@
 		<div id="container"></div>
 		<div id="menu" style="display: flex; justify-content: center; ">
 			<!-- <button id="table" style="display: none;">TABLE</button> -->
-			<button id="sphere" style="display:none">進入壓軸抽獎活動</button>
+			<button id="begining" style="display:block">進入壓軸抽獎活動</button>
 			<!-- <button id="helix" style="display: none;">HELIX</button> -->
 			<button id="raffleTC" class="" style="display:none">進入抽獎(非大陸)</button>
 			<button id="lotteryTC" style="display:none">開始抽獎(非大陸)</button>
@@ -516,6 +531,7 @@
 		let objects = [];
 		let targets = { table: [], sphere: [], helix: [], grid: [] };
 		let sphereGroup = new THREE.Group(); // Create a group for the sphere
+		const buttonBegining = document.getElementById('begining');
 		const buttonRaffleTC = document.getElementById('raffleTC');
 		const buttonLotteryTC = document.getElementById('lotteryTC');
 		const buttonStopTC = document.getElementById('stopTC');
@@ -537,24 +553,24 @@
 		let globalRotatey; // Adjust the speed of rotation
 		let globalRotatestop; // Adjust the speed of rotation
 		let globaltextsetInterval;
-
+		let zoomInOnce = false;
 		// Camera animation variables
 		// Used in function: animate_ZoomIn()
 		const startZ = 500000;
 		const endZ = 2600; // Orig 2600
 		const zoomInEndZ = 6500; 
-		const duration = 9000; // 8 seconds
-		const startTime = performance.now();
+		const duration = 7000; // 8 seconds
+		var startTime = performance.now();
 
         localStorage.removeItem("非大陸");
         localStorage.removeItem("大陸");
 		
+		
 
-		GetData()
+		GetData();
+	
 		setTimeout(()=>{
 			camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
-			
-
 			init();
 			
 		},2000)
@@ -774,6 +790,17 @@
 			controls.maxDistance =500000; // orig value=2600
 			controls.addEventListener('change', render);
 
+			console.log('globalSquareRegion: ' + globalSquareRegion + ' camera.position.z:' + camera.position.z)
+			//尚未跑過Zoom-In
+			if (!zoomInOnce){
+				camera.position.z = startZ;
+			}
+			else{
+				camera.position.set(0, 0, endZ);
+				camera.lookAt(0, 0, 0);
+				camera.updateProjectionMatrix();
+				console.log("Camera position reset to:", camera.position);
+			}
 
 			// 變方格狀
 			// setTimeout(() => {
@@ -816,12 +843,22 @@
 			createDSCLogo_Transparent();
 
 
-			// Camera Zoom-In
-			animate_CameraZoomIn();
+
 			
-			//nanaOwlTalk(`中獎者出爐，恭喜抽中集團大獎，請上台前領獎。`);
+			//nanaOwlTalk(`中獎者出爐，恭喜抽中集團大獎，請上台領獎。`);
 
 		} // END INIT()
+
+		// 開始集團大獎按鈕
+		buttonBegining.addEventListener('click', function () {
+			buttonBegining.style.display = 'none';
+			camera.position.z = startZ;
+
+			// Camera Zoom-In
+			startTime = performance.now();
+			animate_CameraZoomIn();
+			
+		});
 
 		// 進入抽獎(非大陸) 按鈕
 		// const buttonRaffleTC = document.getElementById('raffleTC');
@@ -1126,8 +1163,7 @@
 				.start()
 				.onComplete(() => {
 					// 顯示Raffle Div
-					var raffleDivTC = document.getElementById('raffleTC');
-					var raffleDivCN = document.getElementById('raffleTC');
+					
 					var openDivTC = document.getElementById('openTC');
 					var openDivCN = document.getElementById('openCN');
 
@@ -1147,10 +1183,9 @@
 						default: {
 							if (localStorage.getItem("非大陸") && localStorage.getItem("大陸")) {
 								raffleDivTC.style.display = "none";
-								raffleDivCN.style.display = "none";
+								
 							} else {
-								raffleDivTC.style.display = "block";
-								raffleDivCN.style.display = "block";
+		
 							}
 							startSelfSpin(6000, 2, "")
 							break;
@@ -1371,9 +1406,9 @@
 								document.querySelector(".personnelTC .squareDept").style.opacity = "1";
 								document.querySelector(".personnelTC .squareDept").style.position = "initial";
 								// Nana 02. 使用娜娜貓頭鷹語音
-								sendRunSynthesis(`中獎者出爐，恭喜${winnerObj.Dept}${winnerObj.Name}抽中集團大獎，請${winnerObj.Name}上台前領獎。`);
+								sendRunSynthesis(`中獎者出爐，恭喜${winnerObj.Dept}${winnerObj.Name}抽中集團大獎，請${winnerObj.Name}上台領獎。`);
 
-								console.log('中獎者出爐，恭喜XXX部門抽中集團大獎，請朱友輝上台前領獎。');
+								console.log('中獎者出爐，恭喜XXX部門抽中集團大獎，請朱友輝上台領獎。');
 								// // 使用 Array.find() 查找对象
 								// const foundObject = raffleDataListTC.find(item => {
 								// 	console.log(item)
@@ -1403,9 +1438,9 @@
 								document.querySelector(".personnelCN .squareDept").style.opacity = "1";
 								document.querySelector(".personnelCN .squareDept").style.position = "initial";
 								// Nana 02. 使用娜娜貓頭鷹語音
-								sendRunSynthesis(`中獎者出爐，恭喜${winnerObj.Dept}${winnerObj.Name}抽中集團大獎，請${winnerObj.Name}上台前領獎。`);
+								sendRunSynthesis(`中獎者出爐，恭喜${winnerObj.Dept}${winnerObj.Name}抽中集團大獎，請${winnerObj.Name}上台領獎。`);
 								
-								console.log('中獎者出爐，恭喜XXX部門抽中集團大獎，請朱友輝上台前領獎。');
+								console.log('中獎者出爐，恭喜XXX部門抽中集團大獎，請朱友輝上台領獎。');
 
 								break;
 							}
@@ -1665,7 +1700,8 @@
             }
 			else{
 				console.log('Finished Zoom-In..');
-				
+				zoomInOnce = true;
+				document.getElementById('raffleTC').style.display = "block";
 				
 			}
         }
