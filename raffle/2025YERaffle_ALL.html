@@ -541,7 +541,8 @@
 		// Camera animation variables
 		// Used in function: animate_ZoomIn()
 		const startZ = 500000;
-		const endZ = 2600;
+		const endZ = 2600; // Orig 2600
+		const zoomInEndZ = 6500; 
 		const duration = 9000; // 8 seconds
 		const startTime = performance.now();
 
@@ -552,7 +553,7 @@
 		GetData()
 		setTimeout(()=>{
 			camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
-			camera.position.z = 2600; // need to be 500000
+			
 
 			init();
 			
@@ -825,6 +826,7 @@
 		// 進入抽獎(非大陸) 按鈕
 		// const buttonRaffleTC = document.getElementById('raffleTC');
 		buttonRaffleTC.addEventListener('click', function () {
+			zoomIn();
 			globalSquareRegion = "TC";
 			// document.querySelector(".personnelTC .squareDept").style.opacity = "0";
 			// document.querySelector(".first.personnelTC").classList.remove("firstadd");
@@ -922,6 +924,7 @@
 		//開始抽獎(大陸) 按鈕
 		// const buttonLotteryCN = document.getElementById('lotteryCN');
 		buttonLotteryCN.addEventListener('click', function () {
+			zoomIn();
 			startSelfSpin(6000, 10, "stopCN");
 			globaltextsetInterval = 100;
 			globalRotate = 0.03;
@@ -1368,7 +1371,7 @@
 								document.querySelector(".personnelTC .squareDept").style.opacity = "1";
 								document.querySelector(".personnelTC .squareDept").style.position = "initial";
 								// Nana 02. 使用娜娜貓頭鷹語音
-								sendRunSynthesis(`中獎者出爐，恭喜${winnerObj.Dept}抽中集團大獎，請${winnerObj.Name}上台前領獎。`);
+								sendRunSynthesis(`中獎者出爐，恭喜${winnerObj.Dept}${winnerObj.Name}抽中集團大獎，請${winnerObj.Name}上台前領獎。`);
 
 								console.log('中獎者出爐，恭喜XXX部門抽中集團大獎，請朱友輝上台前領獎。');
 								// // 使用 Array.find() 查找对象
@@ -1400,7 +1403,7 @@
 								document.querySelector(".personnelCN .squareDept").style.opacity = "1";
 								document.querySelector(".personnelCN .squareDept").style.position = "initial";
 								// Nana 02. 使用娜娜貓頭鷹語音
-								sendRunSynthesis(`中獎者出爐，恭喜${winnerObj.Dept}抽中集團大獎，請${winnerObj.Name}上台前領獎。`);
+								sendRunSynthesis(`中獎者出爐，恭喜${winnerObj.Dept}${winnerObj.Name}抽中集團大獎，請${winnerObj.Name}上台前領獎。`);
 								
 								console.log('中獎者出爐，恭喜XXX部門抽中集團大獎，請朱友輝上台前領獎。');
 
@@ -1600,7 +1603,7 @@
 		function zoomIn() {
 
 			// Increase the z position slowly
-			camera.position.z -= 100;
+			camera.position.z -= 70;
 
 			// Update the camera
 			camera.updateProjectionMatrix();
@@ -1609,7 +1612,7 @@
 			renderer.render(scene, camera);
 
 			// Continue zooming out until reaching a certain distance
-			if (camera.position.z > 500) { // Set your desired limit
+			if (camera.position.z > endZ) { // Set your desired limit
 
 				requestAnimationFrame(zoomIn);
 
@@ -1648,7 +1651,7 @@
 
 			//console.log('t:' + t);
             // Update camera position
-            camera.position.z = startZ + t * (endZ - startZ);
+            camera.position.z = startZ + t * (zoomInEndZ - startZ);
 
             // Log camera position (for debugging or tracking)
             //console.log(`Camera Position: x=${camera.position.x}, y=${camera.position.y}, z=${camera.position.z}`);
@@ -1687,7 +1690,7 @@
 
 			// Wrap the <video> in a CSS3DObject
 			const videoElement = new CSS3DObject(video);
-			videoElement.position.set(-500, 0, 800); 
+			videoElement.position.set(-600, 0, 800); 
 			scene.add(videoElement);
 
 		}
@@ -1696,8 +1699,8 @@
 		function createDSCLogo_Transparent() {
 			// Create an <img> element for the transparent image
 			const img = document.createElement('img');
-			img.src = 'files/Trans01.png'; // Replace with your image path
-			img.style.width = '500px'; // Adjust width
+			img.src = 'images/3D-D.png'; // Replace with your image path
+			img.style.width = '4000px'; // Adjust width
 			img.style.height = 'auto'; // Maintain aspect ratio
 			img.style.opacity = '1'; // Optional: Adjust opacity if needed
 
